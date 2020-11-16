@@ -1,1 +1,1 @@
-# project-react-2-juunini
+# Equal Dark Front-End
