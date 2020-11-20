@@ -12,7 +12,8 @@
     "test": "yarn coverage && start-server-and-test start http://localhost:8080 test:e2e",
     "test:e2e": "codeceptjs run --steps",
     "test:unit": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "lint": "eslint --ext ts,tsx ."
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
