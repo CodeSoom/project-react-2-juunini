@@ -1,6 +1,6 @@
 import items from 'fixtures/items';
 
-export type ItemType = {
+export type Item = {
   brand: string;
   name: string;
   price: number;
@@ -11,6 +11,6 @@ export type ItemType = {
   description: string;
 };
 
-export async function fetchItems(): Promise<ItemType[]> {
+export async function fetchItems(): Promise<Item[]> {
   return Promise.resolve(items);
 }
