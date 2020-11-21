@@ -2,7 +2,6 @@ const shops = [
   {
     id: 1,
     name: 'KILLSTAR',
-    sizeGuide: '/killstarSizeGuide.html',
   },
   {
     id: 2,
