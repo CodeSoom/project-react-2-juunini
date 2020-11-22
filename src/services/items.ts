@@ -1,6 +1,7 @@
 import items from 'fixtures/items';
 
 export type Item = {
+  id: number;
   brand: string;
   name: string;
   price: number;
