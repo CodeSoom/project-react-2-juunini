@@ -1,7 +1,7 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
 import shops from 'fixtures/shops';
