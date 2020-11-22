@@ -1,8 +1,9 @@
 const items = [
   {
+    id: 1,
     brand: 'DISTURBIA',
     name: 'Stellar Oversized Jumper',
-    price: '48',
+    price: 48,
     currency: 'GBP',
     href: 'https://www.disturbia.co.uk/products/womens-all-tops/Stellar-Oversized-Jumper',
     images: [
@@ -23,6 +24,7 @@ Star and moon pattern.
 Oversized fit.`,
   },
   {
+    id: 2,
     brand: 'DISTURBIA',
     name: 'Toadstool Midi Dress',
     price: 42,
@@ -45,10 +47,12 @@ Non stretch fabric.
 100% Polyester.`,
   },
   {
+    id: 3,
     brand: 'KILLSTAR',
     name: 'Empire Studded Boots',
     price: 94.99,
     currency: 'GBP',
+    href: 'https://www.killstar.com/collections/womens-boots/products/empire-boots',
     images: [
       'https://cdn.shopify.com/s/files/1/0228/2373/products/EMPIRE-BOOTS-B_x1600.jpg?v=1605183751',
       'https://cdn.shopify.com/s/files/1/0228/2373/products/EMPIRE-BOOTS-C_x1600.jpg?v=1605183751',
@@ -73,10 +77,12 @@ Match as yer immortal heart desires - looks killer with everything!
 With KILLSTAR Branding. 100% PU.`,
   },
   {
+    id: 4,
     brand: 'KILLSTAR',
     name: 'Pagan Round Blanket [B]',
     price: 29.99,
     currency: 'GBP',
+    href: 'https://www.killstar.com/products/pagan-round-blanket-b',
     images: [
       'https://cdn.shopify.com/s/files/1/0228/2373/products/PAGAN-BLANKET-C_x1600.jpg?v=1561636961',
       'https://cdn.shopify.com/s/files/1/0228/2373/products/PAGAN-BLANKET_72cdf805-c1e3-464d-9438-bb8a881fa5e6_x1600.jpg?v=1591792830',
@@ -99,10 +105,12 @@ Completes yer life perfectly, but don't snooze - we only got limited qty!
 with KILLSTAR branding, 100% Polyester.`,
   },
   {
+    id: 5,
     brand: 'ROGUE AND WOLF',
     name: 'Lotus Awakens Armour Ring',
     price: 36,
     currency: 'GBP',
+    href: 'https://rogueandwolf.com/collections/armour-rings/products/lotus-awakens-armour-ring',
     images: [
       'https://cdn.shopify.com/s/files/1/0872/3036/products/BM_2945_Closeup_ring_1080x.jpg?v=1526393227',
       'https://cdn.shopify.com/s/files/1/0872/3036/products/230004_1080x.jpg?v=1526393227',
