@@ -10,10 +10,7 @@ const { actions, reducer } = createSlice({
   initialState,
   reducers: {
     setItems(state, { payload }: PayloadAction<Item[]>) {
-      return {
-        ...state,
-        items: payload,
-      };
+      return payload;
     },
   },
 });

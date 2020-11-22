@@ -38,7 +38,7 @@ describe('shops reducer', () => {
 
       const state = reducer(initialState, setShops(shops));
 
-      expect(state).toEqual({ shops });
+      expect(state).toEqual(shops);
     });
   });
 });

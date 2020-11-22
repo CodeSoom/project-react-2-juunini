@@ -44,7 +44,7 @@ describe('items reducer', () => {
 
       const state = reducer(initialState, setItems(items));
 
-      expect(state).toEqual({ items });
+      expect(state).toEqual(items);
     });
   });
 });
