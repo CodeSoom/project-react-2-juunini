@@ -1,21 +1,12 @@
 import React from 'react';
-
-export type ItemProps = {
-  id?: number;
-  brand: string;
-  name: string;
-  price: number;
-  currency: string;
-  image: string;
-  sizes: string[];
-};
+import { Item as ItemProps } from 'src/services/items';
 
 function Item({
-  brand, name, price, currency, image, sizes,
+  brand, name, price, currency, images, sizes,
 }: ItemProps) {
   return (
     <li>
-      <img src={image} alt="item" />
+      <img src={images[0]} alt="item" />
       <p>
         brand:
         {' '}
