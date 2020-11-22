@@ -1,5 +1,6 @@
 const items = [
   {
+    id: 1,
     brand: 'DISTURBIA',
     name: 'Stellar Oversized Jumper',
     price: 48,
@@ -23,6 +24,7 @@ Star and moon pattern.
 Oversized fit.`,
   },
   {
+    id: 2,
     brand: 'DISTURBIA',
     name: 'Toadstool Midi Dress',
     price: 42,
@@ -45,6 +47,7 @@ Non stretch fabric.
 100% Polyester.`,
   },
   {
+    id: 3,
     brand: 'KILLSTAR',
     name: 'Empire Studded Boots',
     price: 94.99,
@@ -74,6 +77,7 @@ Match as yer immortal heart desires - looks killer with everything!
 With KILLSTAR Branding. 100% PU.`,
   },
   {
+    id: 4,
     brand: 'KILLSTAR',
     name: 'Pagan Round Blanket [B]',
     price: 29.99,
@@ -101,6 +105,7 @@ Completes yer life perfectly, but don't snooze - we only got limited qty!
 with KILLSTAR branding, 100% Polyester.`,
   },
   {
+    id: 5,
     brand: 'ROGUE AND WOLF',
     name: 'Lotus Awakens Armour Ring',
     price: 36,
