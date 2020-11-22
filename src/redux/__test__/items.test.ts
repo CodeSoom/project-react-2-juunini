@@ -4,9 +4,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { Item } from 'src/services/items';
-import
-reducer,
-{
+import reducer, {
   setItems,
   loadItems,
 } from '../items';
