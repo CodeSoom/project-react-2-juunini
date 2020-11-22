@@ -1,6 +1,7 @@
 import React from 'react';
 
-type ItemProps = {
+export type ItemProps = {
+  id?: number;
   brand: string;
   name: string;
   price: number;
