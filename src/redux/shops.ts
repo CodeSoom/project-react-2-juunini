@@ -3,14 +3,17 @@ import { Dispatch } from 'react';
 
 import { fetchShops, Shop } from '../services/shops';
 
-const initialState: Shop[] = [];
+const initialState: {[id: number]: Shop} = {};
 
 const { actions, reducer } = createSlice({
   name: 'shops',
   initialState,
   reducers: {
     setShops(state, { payload }: PayloadAction<Shop[]>) {
-      return payload;
+      return payload.reduce((shops, { id, name }) => ({
+        ...shops,
+        [id]: { id, name },
+      }), {});
     },
   },
 });

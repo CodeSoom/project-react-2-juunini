@@ -1,7 +1,6 @@
 import React from 'react';
 
 export type ItemProps = {
-  id?: number;
   brand: string;
   name: string;
   price: number;
