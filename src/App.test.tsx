@@ -19,8 +19,14 @@ describe('App', () => {
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock)
       .mockImplementation((selector: (arg: RootState) => void) => selector({
-        shops,
-        items,
+        shops: shops.reduce((map, shop) => ({
+          ...map,
+          [shop.id]: shop,
+        }), {}),
+        items: items.reduce((map, item) => ({
+          ...map,
+          [item.id]: item,
+        }), {}),
       }));
   });
 
