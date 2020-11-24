@@ -9,20 +9,7 @@ export default function ItemsContainer() {
     items: state.items,
   }));
 
-  const list = items.map(({
-    id, brand, name, price,
-    currency, images, sizes,
-  }) => ({
-    id,
-    brand,
-    name,
-    price,
-    currency,
-    image: images[0],
-    sizes,
-  }));
-
   return (
-    <Items items={list} />
+    <Items items={Object.values(items)} />
   );
 }

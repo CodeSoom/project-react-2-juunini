@@ -11,7 +11,10 @@ jest.mock('react-redux');
 test('ItemsContainer', () => {
   (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
     shops: [],
-    items,
+    items: items.reduce((map, item) => ({
+      ...map,
+      [item.id]: item,
+    }), {}),
   }));
 
   render(<ItemsContainer />);
