@@ -4,11 +4,11 @@ import { render } from '@testing-library/react';
 import Items, { ItemsProps } from '../Items';
 
 test('Items', () => {
-  const { items }: ItemsProps = {
+  const { items, shops }: ItemsProps = {
     items: [
       {
         id: 1,
-        brand: 'DISTURBIA',
+        brand_id: 1,
         name: 'Stellar Oversized Jumper',
         price: 48,
         currency: '£',
@@ -18,7 +18,13 @@ test('Items', () => {
         description: 'Fine knit, super soft crew neck jumper.',
       },
     ],
+    shops: {
+      1: {
+        id: 1,
+        name: 'DISTURBIA',
+      },
+    },
   };
 
-  render(<Items items={items} />);
+  render(<Items items={items} shops={shops} />);
 });

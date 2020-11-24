@@ -11,12 +11,12 @@ const { actions, reducer } = createSlice({
   reducers: {
     setItems(state, { payload }: PayloadAction<Item[]>) {
       return payload.reduce((items, {
-        id, brand, name, price, currency, href, images, sizes, description,
+        id, brand_id, name, price, currency, href, images, sizes, description,
       }) => ({
         ...items,
         [id]: {
           id,
-          brand,
+          brand_id,
           name,
           price,
           currency,

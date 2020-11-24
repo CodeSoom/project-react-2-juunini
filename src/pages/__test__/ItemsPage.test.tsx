@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
+import shops from 'fixtures/shops';
 import items from 'fixtures/items';
 import ItemsPage from '../ItemsPage';
 
@@ -16,8 +17,14 @@ test('ItemsPage', () => {
 
   (useSelector as jest.Mock)
     .mockImplementation((selector: (arg: RootState) => void) => selector({
-      shops: [],
-      items,
+      shops: shops.reduce((map, shop) => ({
+        ...map,
+        [shop.id]: shop,
+      }), {}),
+      items: items.reduce((map, item) => ({
+        ...map,
+        [item.id]: item,
+      }), {}),
     }));
 
   render((
