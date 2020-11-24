@@ -9,8 +9,8 @@ export default function ItemsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadItems());
     dispatch(loadShops());
+    dispatch(loadItems());
   });
 
   return (<ItemsContainer />);
