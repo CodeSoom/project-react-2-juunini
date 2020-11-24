@@ -1,22 +1,24 @@
 import React from 'react';
 
 import { Item as ItemProps } from 'src/services/items';
+import { Shop } from 'src/services/shops';
 import Item from './Item';
 
 export type ItemsProps = {
   items: ItemProps[];
+  shops: {[id: number]: Shop};
 };
 
-function Items({ items }: ItemsProps) {
+function Items({ items, shops }: ItemsProps) {
   return (
     <ul>
       {
         items.map(({
-          id, brand, name, price, currency, images, sizes,
+          id, brand_id, name, price, currency, images, sizes,
         }) => (
           <Item
             key={id}
-            brand={brand}
+            brand={shops[brand_id].name}
             name={name}
             price={price}
             currency={currency}
