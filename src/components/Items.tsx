@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Item, { ItemProps } from './Item';
+import { Item as ItemProps } from 'src/services/items';
+import Item from './Item';
 
 export type ItemsProps = {
   items: ItemProps[];
@@ -11,7 +12,7 @@ function Items({ items }: ItemsProps) {
     <ul>
       {
         items.map(({
-          id, brand, name, price, currency, image, sizes,
+          id, brand, name, price, currency, images, sizes,
         }) => (
           <Item
             key={id}
@@ -19,7 +20,7 @@ function Items({ items }: ItemsProps) {
             name={name}
             price={price}
             currency={currency}
-            image={image}
+            image={images[0]}
             sizes={sizes}
           />
         ))

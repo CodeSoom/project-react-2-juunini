@@ -4,9 +4,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { Shop } from 'src/services/shops';
-import
-reducer,
-{
+import reducer, {
   setShops,
   loadShops,
 } from '../shops';
@@ -17,7 +15,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('shops reducer', () => {
-  const initialState: Shop[] = [];
+  const initialState: {[id: number]: Shop} = {};
 
   context('when previous state is undefined', () => {
     it('returns initialState', () => {
@@ -29,16 +27,14 @@ describe('shops reducer', () => {
 
   describe('setShops', () => {
     it('changes shops', () => {
-      const shops: Shop[] = [
-        {
-          id: 1,
-          name: 'KILLSTAR',
-        },
-      ];
+      const shop: Shop = {
+        id: 1,
+        name: 'KILLSTAR',
+      };
 
-      const state = reducer(initialState, setShops(shops));
+      const state = reducer(initialState, setShops([shop]));
 
-      expect(state).toEqual(shops);
+      expect(state).toEqual({ [shop.id]: shop });
     });
   });
 });

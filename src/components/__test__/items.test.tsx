@@ -12,8 +12,10 @@ test('Items', () => {
         name: 'Stellar Oversized Jumper',
         price: 48,
         currency: '£',
-        image: 'https://www.disturbia.co.uk/products/womens-all-tops/Stellar-Oversized-Jumper/image/15797.jpeg',
+        href: 'https://www.disturbia.co.uk/products/womens-all-tops/Stellar-Oversized-Jumper',
+        images: ['https://www.disturbia.co.uk/products/womens-all-tops/Stellar-Oversized-Jumper/image/15797.jpeg'],
         sizes: ['XS-S', 'M-L', 'XL-2XL'],
+        description: 'Fine knit, super soft crew neck jumper.',
       },
     ],
   };
