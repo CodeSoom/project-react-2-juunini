@@ -2,7 +2,7 @@ import items from 'fixtures/items';
 
 export type Item = {
   id: number;
-  brand: string;
+  brand_id: number;
   name: string;
   price: number;
   currency: string;
