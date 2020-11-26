@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
 import Items, { ItemsProps } from '../Items';
@@ -26,5 +27,9 @@ test('Items', () => {
     },
   };
 
-  render(<Items items={items} shops={shops} />);
+  render((
+    <MemoryRouter>
+      <Items items={items} shops={shops} />
+    </MemoryRouter>
+  ));
 });
