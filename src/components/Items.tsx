@@ -18,6 +18,7 @@ function Items({ items, shops }: ItemsProps) {
         }) => (
           <Item
             key={id}
+            id={id}
             brand={shops[brand_id].name}
             name={name}
             price={price}
