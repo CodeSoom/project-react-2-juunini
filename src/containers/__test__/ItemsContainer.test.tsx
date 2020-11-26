@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
@@ -21,5 +22,9 @@ test('ItemsContainer', () => {
     }), {}),
   }));
 
-  render(<ItemsContainer />);
+  render((
+    <MemoryRouter>
+      <ItemsContainer />
+    </MemoryRouter>
+  ));
 });

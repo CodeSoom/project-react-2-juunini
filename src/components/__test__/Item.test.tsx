@@ -1,12 +1,14 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
 import Item from '../Item';
 
 test('Item', () => {
   const {
-    brand, name, price, currency, image, sizes,
+    id, brand, name, price, currency, image, sizes,
   } = {
+    id: 1,
     brand: 'DISTURBIA',
     name: 'Stellar Oversized Jumper',
     price: 48,
@@ -15,14 +17,19 @@ test('Item', () => {
     sizes: ['XS-S', 'M-L', 'XL-2XL'],
   };
 
-  render(<Item
-    brand={brand}
-    name={name}
-    price={price}
-    currency={currency}
-    image={image}
-    sizes={sizes}
-  />);
+  render((
+    <MemoryRouter>
+      <Item
+        id={id}
+        brand={brand}
+        name={name}
+        price={price}
+        currency={currency}
+        image={image}
+        sizes={sizes}
+      />
+    </MemoryRouter>
+  ));
 
   expect(screen.getByText(new RegExp(brand))).toBeInTheDocument();
   expect(screen.getByText(new RegExp(name))).toBeInTheDocument();
