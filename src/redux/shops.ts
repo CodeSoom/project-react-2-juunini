@@ -3,7 +3,7 @@ import { Dispatch } from 'react';
 
 import { fetchShops, Shop } from '../services/shops';
 
-const initialState: {[id: number]: Shop} = {};
+const initialState: Record<number, Shop> = {};
 
 const { actions, reducer } = createSlice({
   name: 'shops',
