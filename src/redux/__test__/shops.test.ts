@@ -15,7 +15,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('shops reducer', () => {
-  const initialState: {[id: number]: Shop} = {};
+  const initialState: Record<number, Shop> = {};
 
   context('when previous state is undefined', () => {
     it('returns initialState', () => {
