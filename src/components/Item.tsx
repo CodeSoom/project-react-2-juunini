@@ -16,7 +16,7 @@ function Item({
 }: ItemProps) {
   return (
     <li>
-      <Link to={`/product/${id}`}>
+      <Link to={`/products/${id}`}>
         <img src={image} alt="item" />
         <p>
           brand:
