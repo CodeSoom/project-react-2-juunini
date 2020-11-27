@@ -48,4 +48,33 @@ test('ProductDetail', () => {
     vatRate={vatRate}
     deliveryFee={deliveryFee}
   />);
+
+  const toBeInTheDocument = (target: string) => {
+    expect(screen.getAllByText(new RegExp(target))).not.toHaveLength(0);
+  };
+
+  toBeInTheDocument(name);
+  toBeInTheDocument(brand);
+  toBeInTheDocument(description);
+  toBeInTheDocument(currency);
+
+  sizes.forEach((size) => toBeInTheDocument(size));
+
+  toBeInTheDocument(price.toString());
+  toBeInTheDocument(exchangeRate.toString());
+  toBeInTheDocument(taxRate.toString());
+  toBeInTheDocument(vatRate.toString());
+  toBeInTheDocument(deliveryFee.toString());
+
+  const exchangePrice = price * exchangeRate;
+  const tax = exchangePrice * taxRate;
+  const vat = (exchangePrice + tax) * vatRate;
+  const exchangeDeliveryFee = deliveryFee * exchangeRate;
+  const finalPrice = exchangePrice + tax + vat + deliveryFee;
+
+  toBeInTheDocument(exchangePrice.toString());
+  toBeInTheDocument(tax.toString());
+  toBeInTheDocument(vat.toString());
+  toBeInTheDocument(exchangeDeliveryFee.toString());
+  toBeInTheDocument(finalPrice.toString());
 });
