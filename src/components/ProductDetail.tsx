@@ -23,7 +23,7 @@ function ProductDetail({
   const exchangePrice = price * exchangeRate;
   const tax = exchangePrice * taxRate;
   const vat = (exchangePrice + tax) * vatRate;
-  const exchangedeliveryFee = deliveryFee * exchangeRate;
+  const exchangeDeliveryFee = deliveryFee * exchangeRate;
   const finalPrice = exchangePrice + tax + vat + deliveryFee;
 
   return (
@@ -96,7 +96,7 @@ function ProductDetail({
         {' '}
         =
         {' '}
-        {exchangedeliveryFee}
+        {exchangeDeliveryFee}
       </p>
       <p>
         {exchangePrice}
@@ -111,7 +111,7 @@ function ProductDetail({
         {' '}
         +
         {' '}
-        {exchangedeliveryFee}
+        {exchangeDeliveryFee}
         {' '}
         =
         {' '}
