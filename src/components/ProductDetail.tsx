@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { CalculatePrice } from 'src/services/products';
+
 export type ProductDetailProps = {
   name: string;
   brand: string;
@@ -20,11 +22,11 @@ function ProductDetail({
   name, brand, href, images, sizes, description,
   price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
 }: ProductDetailProps) {
-  const exchangePrice = price * exchangeRate;
-  const tax = exchangePrice * taxRate;
-  const vat = (exchangePrice + tax) * vatRate;
-  const exchangeDeliveryFee = deliveryFee * exchangeRate;
-  const finalPrice = exchangePrice + tax + vat + deliveryFee;
+  const {
+    exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
+  } = CalculatePrice({
+    price, exchangeRate, taxRate, vatRate, deliveryFee,
+  });
 
   return (
     <div>

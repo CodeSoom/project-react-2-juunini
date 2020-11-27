@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
+import { CalculatePrice } from 'src/services/products';
 import ProductDetail, { ProductDetailProps } from '../ProductDetail';
 
 test('ProductDetail', () => {
@@ -66,11 +67,15 @@ test('ProductDetail', () => {
   toBeInTheDocument(vatRate.toString());
   toBeInTheDocument(deliveryFee.toString());
 
-  const exchangePrice = price * exchangeRate;
-  const tax = exchangePrice * taxRate;
-  const vat = (exchangePrice + tax) * vatRate;
-  const exchangeDeliveryFee = deliveryFee * exchangeRate;
-  const finalPrice = exchangePrice + tax + vat + deliveryFee;
+  const {
+    exchangePrice,
+    tax,
+    vat,
+    exchangeDeliveryFee,
+    finalPrice,
+  } = CalculatePrice({
+    price, exchangeRate, taxRate, vatRate, deliveryFee,
+  });
 
   toBeInTheDocument(exchangePrice.toString());
   toBeInTheDocument(tax.toString());
