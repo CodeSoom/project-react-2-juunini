@@ -1,10 +1,11 @@
 const items = [
   {
     id: 1,
-    brand_id: 1,
+    brandId: 1,
     name: 'Stellar Oversized Jumper',
     price: 48,
     currency: 'GBP',
+    category: 1,
     href: 'https://www.disturbia.co.uk/products/womens-all-tops/Stellar-Oversized-Jumper',
     images: [
       'https://www.disturbia.co.uk/products/womens-all-tops/Stellar-Oversized-Jumper/image/15797.jpeg',
@@ -25,10 +26,11 @@ Oversized fit.`,
   },
   {
     id: 2,
-    brand_id: 1,
+    brandId: 1,
     name: 'Toadstool Midi Dress',
     price: 42,
     currency: 'GBP',
+    category: 1,
     images: [
       'https://www.disturbia.co.uk/products/womens-dresses/toadstool-midi-dress/image/15222.jpeg',
       'https://www.disturbia.co.uk/products/womens-dresses/toadstool-midi-dress/image/15317.jpeg',
@@ -48,10 +50,11 @@ Non stretch fabric.
   },
   {
     id: 3,
-    brand_id: 2,
+    brandId: 2,
     name: 'Empire Studded Boots',
     price: 94.99,
     currency: 'GBP',
+    category: 4,
     href: 'https://www.killstar.com/collections/womens-boots/products/empire-boots',
     images: [
       'https://cdn.shopify.com/s/files/1/0228/2373/products/EMPIRE-BOOTS-B_x1600.jpg?v=1605183751',
@@ -78,10 +81,11 @@ With KILLSTAR Branding. 100% PU.`,
   },
   {
     id: 4,
-    brand_id: 2,
+    brandId: 2,
     name: 'Pagan Round Blanket [B]',
     price: 29.99,
     currency: 'GBP',
+    category: 30,
     href: 'https://www.killstar.com/products/pagan-round-blanket-b',
     images: [
       'https://cdn.shopify.com/s/files/1/0228/2373/products/PAGAN-BLANKET-C_x1600.jpg?v=1561636961',
@@ -106,10 +110,11 @@ with KILLSTAR branding, 100% Polyester.`,
   },
   {
     id: 5,
-    brand_id: 3,
+    brandId: 3,
     name: 'Lotus Awakens Armour Ring',
     price: 36,
     currency: 'GBP',
+    category: 36,
     href: 'https://rogueandwolf.com/collections/armour-rings/products/lotus-awakens-armour-ring',
     images: [
       'https://cdn.shopify.com/s/files/1/0872/3036/products/BM_2945_Closeup_ring_1080x.jpg?v=1526393227',
@@ -126,6 +131,32 @@ Right here, in this moment, wake up and rise like a lotus.
 
 
 3D printed in polyamide plastic.`,
+  },
+  {
+    id: 6,
+    brandId: 1,
+    name: 'Overload II Leather Vest [VEGAN]',
+    price: 160.99,
+    currency: 'GBP',
+    category: 2,
+    href: 'https://www.killstar.com/collections/womens-jackets-coats/products/overload-ii-leather-vest-vegan',
+    images: [
+      'https://cdn.shopify.com/s/files/1/0228/2373/products/OVERLOAD-LEATHER_x1600.jpg?v=1446864283',
+      'https://cdn.shopify.com/s/files/1/0228/2373/products/OVERLOAD-LEATHER-B_x1600.jpg?v=1446864283',
+    ],
+    sizes: ['XXL', 'XS', 'S', 'M', 'L', 'XL'],
+    description: `OVERLOAD.
+
+Give me studs n spikes. More is more. 
+
+- Soft Vegan Leather.
+- Zip Front & Zip & Stud Pockets.
+- Satin Lining.
+- UNISEX/Slightly Fitted - if in doubt order a size up.
+
+Rad vegan vest with hundreds of mixed elements spikes and studs in soft A-grade PU Leather. Hand-crafted.
+
+with KILLSTAR Branding, 100% PU.`,
   },
 ];
 

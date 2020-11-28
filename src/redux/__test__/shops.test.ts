@@ -30,6 +30,9 @@ describe('shops reducer', () => {
       const shop: Shop = {
         id: 1,
         name: 'KILLSTAR',
+        deliveryFee: 4.99,
+        minimumFreeDeliveryPrice: 150,
+        includeTax: false,
       };
 
       const state = reducer(initialState, setShops([shop]));

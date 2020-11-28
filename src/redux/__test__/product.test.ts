@@ -5,17 +5,28 @@ import thunk from 'redux-thunk';
 
 import { Item } from 'src/services/items';
 import reducer, {
-  setItems,
-  loadItems,
-} from '../items';
+  setProduct,
+  loadProduct,
+} from '../product';
 
-jest.mock('src/services/items');
+jest.mock('src/services/products');
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('items reducer', () => {
-  const initialState: Record<number, Item> = {};
+  const initialState: Item = {
+    id: 0,
+    brandId: 0,
+    name: '',
+    price: 0,
+    currency: '',
+    category: 0,
+    href: '',
+    images: [],
+    sizes: [],
+    description: '',
+  };
 
   context('when previous state is undefined', () => {
     it('returns initialState', () => {
@@ -25,38 +36,38 @@ describe('items reducer', () => {
     });
   });
 
-  describe('setItems', () => {
-    it('changes items', () => {
-      const item: Item = {
-        id: 1,
+  describe('setProduct', () => {
+    it('changes product', () => {
+      const product: Item = {
+        id: 0,
         brandId: 1,
         name: 'item name',
         price: 1,
         currency: 'item currency',
-        category: 1,
         href: 'item href',
+        category: 1,
         images: ['item image 1'],
         sizes: ['item size 1'],
         description: 'item description',
       };
 
-      const state = reducer(initialState, setItems([item]));
+      const state = reducer(initialState, setProduct(product));
 
-      expect(state).toEqual({ [item.id]: item });
+      expect(state).toEqual(product);
     });
   });
 });
 
-describe('items actions', () => {
-  describe('loadItems', () => {
-    it('runs setItems', async () => {
+describe('product actions', () => {
+  describe('loadProduct', () => {
+    it('runs setProduct', async () => {
       const store = mockStore({});
 
-      await store.dispatch<Promise<Dispatch<AnyAction>>>(loadItems());
+      await store.dispatch<Promise<Dispatch<AnyAction>>>(loadProduct(1));
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setItems([]));
+      expect(actions[0]).toEqual(setProduct({}));
     });
   });
 });
