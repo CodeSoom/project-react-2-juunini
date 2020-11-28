@@ -1,16 +1,19 @@
-const currencies = {
-  KRW: {
+const currencies = [
+  {
+    name: 'KRW',
     symbol: '₩',
     exchangeRate: 1,
   },
-  USD: {
+  {
+    name: 'USD',
     symbol: '$',
     exchangeRate: 1105.03,
   },
-  GBP: {
+  {
+    name: 'GBP',
     symbol: '£',
     exchangeRate: 1470.41,
   },
-};
+];
 
 export default currencies;
