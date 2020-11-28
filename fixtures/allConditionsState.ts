@@ -1,5 +1,5 @@
 import shops from 'fixtures/shops';
-import items from 'fixtures/items';
+import products from 'fixtures/products';
 import currencies from 'fixtures/currencies';
 import taxes from 'fixtures/taxes';
 
@@ -8,8 +8,11 @@ const allConditionsState = {
     ...map,
     [shop.id]: shop,
   }), {}),
-  items: {},
-  product: items[0],
+  products: products.reduce((map, product) => ({
+    ...map,
+    [product.id]: product,
+  }), {}),
+  product: products[0],
   currencies: currencies.reduce((map, currency) => ({
     ...map,
     [currency.name]: currency,

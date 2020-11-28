@@ -20,9 +20,9 @@ function ProductDetailPage() {
   const dispatch = useDispatch();
 
   const {
-    items, shops, currencies, taxes,
+    products, shops, currencies, taxes,
   } = useSelector((state: RootState) => ({
-    items: state.items,
+    products: state.products,
     shops: state.shops,
     currencies: state.currencies,
     taxes: state.taxes,
@@ -38,12 +38,12 @@ function ProductDetailPage() {
     if (isEmpty(taxes)) {
       dispatch(loadTaxes());
     }
-    if (items[integerId]) {
-      dispatch(setProduct(items[integerId]));
+    if (products[integerId]) {
+      dispatch(setProduct(products[integerId]));
     } else {
       dispatch(loadProduct(integerId));
     }
-  }, [dispatch, shops, currencies, taxes, items, integerId]);
+  }, [dispatch, shops, currencies, taxes, products, integerId]);
 
   return (<ProductDetailContainer />);
 }

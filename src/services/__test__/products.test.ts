@@ -1,7 +1,7 @@
 import { round } from 'lodash';
 
-import sampleItems from 'fixtures/items';
-import { CalculatePrice, fetchProduct } from 'src/services/products';
+import sampleProducts from 'fixtures/products';
+import { CalculatePrice, fetchProduct, fetchProducts } from 'src/services/products';
 
 describe('products', () => {
   describe('CalculatePrice', () => {
@@ -30,7 +30,15 @@ describe('products', () => {
     it('returns product', async () => {
       const product = await fetchProduct(1);
 
-      expect(product).toEqual(sampleItems[0]);
+      expect(product).toEqual(sampleProducts[0]);
+    });
+  });
+
+  describe('fetchProducts', () => {
+    it('renders products', async () => {
+      const products = await fetchProducts();
+
+      expect(products[0]).toEqual(sampleProducts[0]);
     });
   });
 });

@@ -4,13 +4,13 @@ import {
   Route,
 } from 'react-router-dom';
 
-import ItemsPage from 'src/pages/ItemsPage';
+import ProductsPage from 'src/pages/ProductsPage';
 import ProductDetailPage from 'src/pages/ProductDetailPage';
 
 export default function App() {
   return (
     <Switch>
-      <Route exact path="/" component={ItemsPage} />
+      <Route exact path="/" component={ProductsPage} />
       <Route path="/products/:id" component={ProductDetailPage} />
     </Switch>
   );
