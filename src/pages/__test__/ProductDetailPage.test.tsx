@@ -8,10 +8,6 @@ import shops from 'fixtures/shops';
 import items from 'fixtures/items';
 import currencies from 'fixtures/currencies';
 import taxes from 'fixtures/taxes';
-import { loadShops } from 'src/redux/shops';
-import { loadCurrencies } from 'src/redux/currencies';
-import { loadTaxes } from 'src/redux/taxes';
-import { loadProduct, setProduct } from 'src/redux/product';
 import ProductDetailPage from '../ProductDetailPage';
 
 jest.mock('react-redux');
