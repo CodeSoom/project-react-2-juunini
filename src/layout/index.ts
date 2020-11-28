@@ -5,6 +5,9 @@ const Wrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
+
+  color: '#666666',
+  fontSize: '16px',
 });
 
 const Main = styled.main({
