@@ -1,5 +1,6 @@
 # Equal Dark Front-End
-[![Netlify Status](https://api.netlify.com/api/v1/badges/21f43689-513d-4f3d-b4b1-b404ac65d1b1/deploy-status)](https://app.netlify.com/sites/elastic-volhard-7be23e/deploys)  
+![CI](https://github.com/juunini/project-react-2-juunini/workflows/CI/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21f43689-513d-4f3d-b4b1-b404ac65d1b1/deploy-status)](https://app.netlify.com/sites/elastic-volhard-7be23e/deploys)
 
 https://equal-dark.com/  
 Goth 계열 해외 브랜드를 모아서 사용자에게 보여주는 것을 목적으로 하는 애플리케이션입니다.  
