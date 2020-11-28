@@ -32,7 +32,7 @@ function ProductDetail({
     <div>
       <p>{name}</p>
       <p>{brand}</p>
-      <a href={href}>브랜드 페이지로 이동</a>
+      <a href={href} target="_new">브랜드 페이지로 이동</a>
       <div>
         {images.map((src) => <img key={src} src={src} alt="" />)}
       </div>
