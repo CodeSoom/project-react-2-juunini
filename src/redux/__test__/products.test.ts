@@ -9,12 +9,12 @@ import reducer, {
   loadProducts,
 } from '../products';
 
-jest.mock('src/services/items');
+jest.mock('src/services/products');
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('items reducer', () => {
+describe('products reducer', () => {
   const initialState: Record<number, Product> = {};
 
   context('when previous state is undefined', () => {
@@ -25,8 +25,8 @@ describe('items reducer', () => {
     });
   });
 
-  describe('setItems', () => {
-    it('changes items', () => {
+  describe('setProducts', () => {
+    it('changes products', () => {
       const item: Product = {
         id: 1,
         brandId: 1,
@@ -47,9 +47,9 @@ describe('items reducer', () => {
   });
 });
 
-describe('items actions', () => {
-  describe('loadItems', () => {
-    it('runs setItems', async () => {
+describe('products actions', () => {
+  describe('loadProducts', () => {
+    it('runs setProducts', async () => {
       const store = mockStore({});
 
       await store.dispatch<Promise<Dispatch<AnyAction>>>(loadProducts());

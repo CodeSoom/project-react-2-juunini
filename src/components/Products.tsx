@@ -6,7 +6,7 @@ export type ProductsProps = {
   products: ProductProps[];
 };
 
-function Items({ products }: ProductsProps) {
+function Products({ products }: ProductsProps) {
   return (
     <ul>
       {
@@ -29,4 +29,4 @@ function Items({ products }: ProductsProps) {
   );
 }
 
-export default React.memo(Items);
+export default React.memo(Products);

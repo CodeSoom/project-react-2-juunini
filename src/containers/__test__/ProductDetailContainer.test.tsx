@@ -20,7 +20,7 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
+          products: {},
           product: products[0],
           currencies: currencies.reduce((map, currency) => ({
             ...map,
@@ -44,7 +44,7 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
+          products: {},
           product: products[4],
           currencies: currencies.reduce((map, currency) => ({
             ...map,
@@ -68,7 +68,7 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
+          products: {},
           product: { ...products[0], price: 300 },
           currencies: currencies.reduce((map, currency) => ({
             ...map,
@@ -89,7 +89,7 @@ describe('ProductDetailContainer', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
           shops: {},
-          items: {},
+          products: {},
           product: { ...products[0], price: 300 },
           currencies: currencies.reduce((map, currency) => ({
             ...map,
@@ -115,7 +115,7 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
+          products: {},
           product: { ...products[0], price: 300 },
           currencies: {},
           taxes: taxes.reduce((map, tax) => ({

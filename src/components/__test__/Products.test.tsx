@@ -2,9 +2,9 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
-import Items, { ProductsProps } from '../Products';
+import Products, { ProductsProps } from '../Products';
 
-test('Items', () => {
+test('Products', () => {
   const { products }: ProductsProps = {
     products: [
       {
@@ -21,7 +21,7 @@ test('Items', () => {
 
   render((
     <MemoryRouter>
-      <Items products={products} />
+      <Products products={products} />
     </MemoryRouter>
   ));
 });

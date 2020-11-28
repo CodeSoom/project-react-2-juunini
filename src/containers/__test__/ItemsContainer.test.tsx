@@ -9,7 +9,7 @@ import ProductsContainer from '../ProductsContainer';
 
 jest.mock('react-redux');
 
-test('ItemsContainer', () => {
+test('ProductsProductsContainer', () => {
   (useSelector as jest.Mock)
     .mockImplementation((selector: (arg: RootState) => void) => selector(allConditionsState));
 

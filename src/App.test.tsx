@@ -19,7 +19,7 @@ describe('App', () => {
       ...map,
       [shop.id]: shop,
     }), {}),
-    items: products.reduce((map, item) => ({
+    products: products.reduce((map, item) => ({
       ...map,
       [item.id]: item,
     }), {}),
@@ -51,7 +51,7 @@ describe('App', () => {
   }
 
   context('with path /', () => {
-    it('renders items page', () => {
+    it('renders products page', () => {
       renderApp({ path: '/' });
     });
   });

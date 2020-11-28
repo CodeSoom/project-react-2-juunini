@@ -14,7 +14,7 @@ jest.mock('src/services/products');
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('items reducer', () => {
+describe('products reducer', () => {
   const initialState: Product = {
     id: 0,
     brandId: 0,

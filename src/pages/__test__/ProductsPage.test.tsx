@@ -9,7 +9,7 @@ import ProductsPage from '../ProductsPage';
 
 jest.mock('react-redux');
 
-test('ItemsPage', () => {
+test('ProductsPage', () => {
   const dispatch = jest.fn();
 
   (useDispatch as jest.Mock).mockImplementation(() => dispatch);

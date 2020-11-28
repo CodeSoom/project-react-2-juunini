@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux';
 import { isEmpty, round } from 'lodash';
 
 import { RootState } from 'src/redux/rootReducer';
-import Items from 'src/components/Products';
+import Products from 'src/components/Products';
 import { ProductProps } from 'src/components/Product';
 import { CalculatePrice } from 'src/services/products';
 
 export default function ProductsContainer() {
   const {
-    items, shops, currencies, taxes,
+    products, shops, currencies, taxes,
   } = useSelector((state: RootState) => ({
-    items: state.items,
+    products: state.products,
     shops: state.shops,
     currencies: state.currencies,
     taxes: state.taxes,
@@ -21,7 +21,7 @@ export default function ProductsContainer() {
     return (<p>loading...</p>);
   }
 
-  const CombinedItems: ProductProps[] = Object.values(items).reduce((combinedItems, item) => {
+  const CombinedProducts: ProductProps[] = Object.values(products).reduce((combinedProducts, item) => {
     const {
       id, brandId, name, price, currency,
       category, images, sizes,
@@ -44,7 +44,7 @@ export default function ProductsContainer() {
     });
 
     return [
-      ...combinedItems,
+      ...combinedProducts,
       {
         id,
         brand,
@@ -58,6 +58,6 @@ export default function ProductsContainer() {
   }, [] as ProductProps[]);
 
   return (
-    <Items products={CombinedItems} />
+    <Products products={CombinedProducts} />
   );
 }

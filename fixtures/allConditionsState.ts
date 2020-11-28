@@ -8,7 +8,10 @@ const allConditionsState = {
     ...map,
     [shop.id]: shop,
   }), {}),
-  items: {},
+  products: products.reduce((map, product) => ({
+    ...map,
+    [product.id]: product,
+  }), {}),
   product: products[0],
   currencies: currencies.reduce((map, currency) => ({
     ...map,

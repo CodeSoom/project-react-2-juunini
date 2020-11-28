@@ -4,10 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
-import shops from 'fixtures/shops';
-import products from 'fixtures/products';
-import currencies from 'fixtures/currencies';
-import taxes from 'fixtures/taxes';
+import allConditionsState from 'fixtures/allConditionsState';
 import ProductDetailPage from '../ProductDetailPage';
 
 jest.mock('react-redux');
@@ -33,25 +30,6 @@ describe('ProductDetailPage', () => {
     sizes: [],
     description: '',
   };
-  const allConditions = {
-    shops: shops.reduce((map, shop) => ({
-      ...map,
-      [shop.id]: shop,
-    }), {}),
-    items: products.reduce((map, item) => ({
-      ...map,
-      [item.id]: item,
-    }), {}),
-    product: productInitialState,
-    currencies: currencies.reduce((map, currency) => ({
-      ...map,
-      [currency.name]: currency,
-    }), {}),
-    taxes: taxes.reduce((map, tax) => ({
-      ...map,
-      [tax.id]: tax,
-    }), {}),
-  };
 
   beforeEach(() => {
     dispatch.mockClear();
@@ -75,7 +53,7 @@ describe('ProductDetailPage', () => {
 
   context('with all conditions', () => {
     it('renders ProductDetailPage', () => {
-      mockState(allConditions);
+      mockState(allConditionsState);
 
       renderProductDetailPage();
 
@@ -86,7 +64,7 @@ describe('ProductDetailPage', () => {
   context('without shops', () => {
     it('renders ProductDetailPage', () => {
       mockState({
-        ...allConditions,
+        ...allConditionsState,
         shops: {},
       });
 
@@ -102,7 +80,7 @@ describe('ProductDetailPage', () => {
   context('without currencies', () => {
     it('renders ProductDetailPage', () => {
       mockState({
-        ...allConditions,
+        ...allConditionsState,
         currencies: {},
       });
 
@@ -118,7 +96,7 @@ describe('ProductDetailPage', () => {
   context('without taxes', () => {
     it('renders ProductDetailPage', () => {
       mockState({
-        ...allConditions,
+        ...allConditionsState,
         taxes: {},
       });
 
@@ -130,11 +108,11 @@ describe('ProductDetailPage', () => {
     });
   });
 
-  context('without items', () => {
+  context('without products', () => {
     it('renders ProductDetailPage', () => {
       mockState({
-        ...allConditions,
-        items: {},
+        ...allConditionsState,
+        products: {},
       });
 
       expect(dispatch).not.toBeCalled();

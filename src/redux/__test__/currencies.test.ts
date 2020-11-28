@@ -14,7 +14,7 @@ jest.mock('src/services/currencies');
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('items reducer', () => {
+describe('products reducer', () => {
   const initialState: Record<string, Currency> = {};
 
   context('when previous state is undefined', () => {
