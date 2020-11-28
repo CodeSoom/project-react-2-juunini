@@ -1,4 +1,6 @@
 # Equal Dark Front-End
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21f43689-513d-4f3d-b4b1-b404ac65d1b1/deploy-status)](https://app.netlify.com/sites/elastic-volhard-7be23e/deploys)  
+
 https://equal-dark.com/  
 Goth 계열 해외 브랜드를 모아서 사용자에게 보여주는 것을 목적으로 하는 애플리케이션입니다.  
 사용자가 상품을 조회할 때 환전 된 가격, 관세, 부가세, 배송비 등을 한눈에 볼 수 있습니다.  
