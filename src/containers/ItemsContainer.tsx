@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { isEmpty, round } from 'lodash';
 
 import { RootState } from 'src/redux/rootReducer';
-import Items from 'src/components/Items';
-import { ItemProps } from 'src/components/Item';
+import Items from 'src/components/Products';
+import { ProductProps } from 'src/components/Product';
 import { CalculatePrice } from 'src/services/products';
 
 export default function ItemsContainer() {
@@ -21,7 +21,7 @@ export default function ItemsContainer() {
     return (<p>loading...</p>);
   }
 
-  const CombinedItems: ItemProps[] = Object.values(items).reduce((combinedItems, item) => {
+  const CombinedItems: ProductProps[] = Object.values(items).reduce((combinedItems, item) => {
     const {
       id, brandId, name, price, currency,
       category, images, sizes,
@@ -55,9 +55,9 @@ export default function ItemsContainer() {
         sizes,
       },
     ];
-  }, [] as ItemProps[]);
+  }, [] as ProductProps[]);
 
   return (
-    <Items items={CombinedItems} />
+    <Items products={CombinedItems} />
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export type ItemProps = {
+export type ProductProps = {
   id: number;
   brand: string;
   name: string;
@@ -11,9 +11,9 @@ export type ItemProps = {
   sizes: string[];
 };
 
-function Item({
+function Product({
   id, brand, name, finalPrice, currency, image, sizes,
-}: ItemProps) {
+}: ProductProps) {
   return (
     <li>
       <Link to={`/products/${id}`}>
@@ -49,4 +49,4 @@ function Item({
   );
 }
 
-export default React.memo(Item);
+export default React.memo(Product);

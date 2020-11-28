@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
-import Item from '../Item';
+import Product from '../Product';
 
 test('Item', () => {
   const {
@@ -19,7 +19,7 @@ test('Item', () => {
 
   render((
     <MemoryRouter>
-      <Item
+      <Product
         id={id}
         brand={brand}
         name={name}
