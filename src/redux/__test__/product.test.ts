@@ -41,14 +41,14 @@ describe('products reducer', () => {
       const product: Product = {
         id: 0,
         brandId: 1,
-        name: 'item name',
+        name: 'product name',
         price: 1,
-        currency: 'item currency',
-        href: 'item href',
+        currency: 'product currency',
+        href: 'product href',
         category: 1,
-        images: ['item image 1'],
-        sizes: ['item size 1'],
-        description: 'item description',
+        images: ['product image 1'],
+        sizes: ['product size 1'],
+        description: 'product description',
       };
 
       const state = reducer(initialState, setProduct(product));

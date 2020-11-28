@@ -21,11 +21,11 @@ export default function ProductsContainer() {
     return (<p>loading...</p>);
   }
 
-  const CombinedProducts: ProductProps[] = Object.values(products).reduce((combinedProducts, item) => {
+  const CombinedProducts: ProductProps[] = Object.values(products).reduce((combinedProducts, product) => {
     const {
       id, brandId, name, price, currency,
       category, images, sizes,
-    } = item;
+    } = product;
     const image = images[0];
     const {
       name: brand, includeTax,

@@ -17,7 +17,7 @@ function Product({
   return (
     <li>
       <Link to={`/products/${id}`}>
-        <img src={image} alt="item" />
+        <img src={image} alt="product" />
         <p>
           brand:
           {' '}

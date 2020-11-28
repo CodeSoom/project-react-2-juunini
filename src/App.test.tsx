@@ -19,9 +19,9 @@ describe('App', () => {
       ...map,
       [shop.id]: shop,
     }), {}),
-    products: products.reduce((map, item) => ({
+    products: products.reduce((map, product) => ({
       ...map,
-      [item.id]: item,
+      [product.id]: product,
     }), {}),
     product: products[0],
     currencies: currencies.reduce((map, currency) => ({

@@ -27,22 +27,22 @@ describe('products reducer', () => {
 
   describe('setProducts', () => {
     it('changes products', () => {
-      const item: Product = {
+      const product: Product = {
         id: 1,
         brandId: 1,
-        name: 'item name',
+        name: 'product name',
         price: 1,
-        currency: 'item currency',
+        currency: 'product currency',
         category: 1,
-        href: 'item href',
-        images: ['item image 1'],
-        sizes: ['item size 1'],
-        description: 'item description',
+        href: 'product href',
+        images: ['product image 1'],
+        sizes: ['product size 1'],
+        description: 'product description',
       };
 
-      const state = reducer(initialState, setProducts([item]));
+      const state = reducer(initialState, setProducts([product]));
 
-      expect(state).toEqual({ [item.id]: item });
+      expect(state).toEqual({ [product.id]: product });
     });
   });
 });

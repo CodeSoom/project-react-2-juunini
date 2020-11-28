@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 import Product from '../Product';
 
-test('Item', () => {
+test('Product', () => {
   const {
     id, brand, name, price, currency, image, sizes,
   } = {
@@ -34,7 +34,7 @@ test('Item', () => {
   expect(screen.getByText(new RegExp(brand))).toBeInTheDocument();
   expect(screen.getByText(new RegExp(name))).toBeInTheDocument();
   expect(screen.getByText(new RegExp(currency + price.toLocaleString()))).toBeInTheDocument();
-  expect(screen.getByAltText('item')).toHaveAttribute('src', image);
+  expect(screen.getByAltText('product')).toHaveAttribute('src', image);
 
   sizes.forEach((size) => {
     expect(screen.getByText(new RegExp(size))).toBeInTheDocument();
