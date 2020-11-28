@@ -4,42 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
-import shops from 'fixtures/shops';
-import products from 'fixtures/products';
-import currencies from 'fixtures/currencies';
-import taxes from 'fixtures/taxes';
+import allConditionsState from 'fixtures/allConditionsState';
 import App from './App';
 
 jest.mock('react-redux');
 
 describe('App', () => {
   const dispatch = jest.fn();
-  const allConditions = {
-    shops: shops.reduce((map, shop) => ({
-      ...map,
-      [shop.id]: shop,
-    }), {}),
-    products: products.reduce((map, product) => ({
-      ...map,
-      [product.id]: product,
-    }), {}),
-    product: products[0],
-    currencies: currencies.reduce((map, currency) => ({
-      ...map,
-      [currency.name]: currency,
-    }), {}),
-    taxes: taxes.reduce((map, tax) => ({
-      ...map,
-      [tax.id]: tax,
-    }), {}),
-  };
 
   beforeEach(() => {
     dispatch.mockClear();
 
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock)
-      .mockImplementation((selector: (arg: RootState) => void) => selector(allConditions));
+      .mockImplementation((selector: (arg: RootState) => void) => selector(allConditionsState));
   });
 
   function renderApp({ path }: {path: string}) {
@@ -59,6 +37,12 @@ describe('App', () => {
   context('with path /products/1', () => {
     it('renders product detail page', () => {
       renderApp({ path: '/products/1' });
+    });
+  });
+
+  context('with path /not-found', () => {
+    it('renders not found page', () => {
+      renderApp({ path: '/not-found' });
     });
   });
 });
