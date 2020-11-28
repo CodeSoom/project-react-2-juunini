@@ -6,28 +6,28 @@ import { fetchProducts, Product } from 'src/services/products';
 const initialState: Record<number, Product> = {};
 
 const { actions, reducer } = createSlice({
-  name: 'items',
+  name: 'products',
   initialState,
   reducers: {
-    setItems(state, { payload }: PayloadAction<Product[]>) {
-      return payload.reduce((items, item) => ({
-        ...items,
-        [item.id]: item,
+    setProducts(state, { payload }: PayloadAction<Product[]>) {
+      return payload.reduce((products, product) => ({
+        ...products,
+        [product.id]: product,
       }), {});
     },
   },
 });
 
-export function loadItems() {
+export function loadProducts() {
   return async (dispatch: Dispatch<PayloadAction<Product[]>>) => {
-    const items = await fetchProducts();
+    const products = await fetchProducts();
 
-    dispatch(actions.setItems(items));
+    dispatch(actions.setProducts(products));
   };
 }
 
 export const {
-  setItems,
+  setProducts,
 } = actions;
 
 export default reducer;

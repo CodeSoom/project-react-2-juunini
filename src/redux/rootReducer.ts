@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import shopsReducer from './shops';
-import itemsReducer from './items';
+import itemsReducer from './products';
 import productReducer from './product';
 import currenciesReducer from './currencies';
 import taxesReducer from './taxes';

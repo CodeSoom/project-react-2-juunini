@@ -5,9 +5,9 @@ import thunk from 'redux-thunk';
 
 import { Product } from 'src/services/products';
 import reducer, {
-  setItems,
-  loadItems,
-} from '../items';
+  setProducts,
+  loadProducts,
+} from '../products';
 
 jest.mock('src/services/items');
 
@@ -40,7 +40,7 @@ describe('items reducer', () => {
         description: 'item description',
       };
 
-      const state = reducer(initialState, setItems([item]));
+      const state = reducer(initialState, setProducts([item]));
 
       expect(state).toEqual({ [item.id]: item });
     });
@@ -52,11 +52,11 @@ describe('items actions', () => {
     it('runs setItems', async () => {
       const store = mockStore({});
 
-      await store.dispatch<Promise<Dispatch<AnyAction>>>(loadItems());
+      await store.dispatch<Promise<Dispatch<AnyAction>>>(loadProducts());
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setItems([]));
+      expect(actions[0]).toEqual(setProducts([]));
     });
   });
 });
