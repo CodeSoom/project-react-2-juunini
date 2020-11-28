@@ -1,4 +1,5 @@
 import React from 'react';
+import { round } from 'lodash';
 
 export type ProductDetailProps = {
   name: string;
@@ -119,7 +120,7 @@ function ProductDetail({
         {finalPrice}
       </p>
       <p>
-        {Math.round(finalPrice)}
+        {round(finalPrice)}
         원
       </p>
     </div>
