@@ -31,7 +31,7 @@ const { actions, reducer } = createSlice({
 });
 
 export function loadProduct(id: number) {
-  return async (dispatch: Dispatch<PayloadAction<unknown>>) => {
+  return async (dispatch: Dispatch<PayloadAction<Item>>) => {
     const product = await fetchProduct(id);
 
     dispatch(actions.setProduct(product));

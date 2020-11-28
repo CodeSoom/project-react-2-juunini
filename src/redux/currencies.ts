@@ -19,7 +19,7 @@ const { actions, reducer } = createSlice({
 });
 
 export function loadCurrencies() {
-  return async (dispatch: Dispatch<PayloadAction<unknown>>) => {
+  return async (dispatch: Dispatch<PayloadAction<Currency[]>>) => {
     const currencies = await fetchCurrencies();
 
     dispatch(actions.setCurrencies(currencies));
