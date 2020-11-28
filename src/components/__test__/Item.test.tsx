@@ -23,7 +23,7 @@ test('Item', () => {
         id={id}
         brand={brand}
         name={name}
-        price={price}
+        finalPrice={price}
         currency={currency}
         image={image}
         sizes={sizes}
@@ -33,7 +33,7 @@ test('Item', () => {
 
   expect(screen.getByText(new RegExp(brand))).toBeInTheDocument();
   expect(screen.getByText(new RegExp(name))).toBeInTheDocument();
-  expect(screen.getByText(new RegExp(String(price) + currency))).toBeInTheDocument();
+  expect(screen.getByText(new RegExp(currency + price.toLocaleString()))).toBeInTheDocument();
   expect(screen.getByAltText('item')).toHaveAttribute('src', image);
 
   sizes.forEach((size) => {

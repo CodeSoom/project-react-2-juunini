@@ -5,14 +5,14 @@ export type ItemProps = {
   id: number;
   brand: string;
   name: string;
-  price: number;
+  finalPrice: number;
   currency: string;
   image: string;
   sizes: string[];
 };
 
 function Item({
-  id, brand, name, price, currency, image, sizes,
+  id, brand, name, finalPrice, currency, image, sizes,
 }: ItemProps) {
   return (
     <li>
@@ -31,14 +31,17 @@ function Item({
         <p>
           price:
           {' '}
-          {price}
           {currency}
+          {finalPrice.toLocaleString()}
         </p>
         <p>
           sizes:
           {' '}
           {sizes.map((size) => (
-            <span key={size}>{size}</span>
+            <span key={size}>
+              {size}
+              {' '}
+            </span>
           ))}
         </p>
       </Link>

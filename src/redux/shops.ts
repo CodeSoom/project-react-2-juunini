@@ -10,9 +10,9 @@ const { actions, reducer } = createSlice({
   initialState,
   reducers: {
     setShops(state, { payload }: PayloadAction<Shop[]>) {
-      return payload.reduce((shops, { id, name }) => ({
+      return payload.reduce((shops, shop) => ({
         ...shops,
-        [id]: { id, name },
+        [shop.id]: shop,
       }), {});
     },
   },
