@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
 import allConditionsState from 'fixtures/allConditionsState';
-import ItemsPage from '../ItemsPage';
+import ProductsPage from '../ProductsPage';
 
 jest.mock('react-redux');
 
@@ -19,7 +19,7 @@ test('ItemsPage', () => {
 
   render((
     <MemoryRouter>
-      <ItemsPage />
+      <ProductsPage />
     </MemoryRouter>
   ));
 

@@ -7,7 +7,7 @@ import { loadShops } from 'src/redux/shops';
 import { loadTaxes } from 'src/redux/taxes';
 import { loadCurrencies } from 'src/redux/currencies';
 
-export default function ItemsPage() {
+export default function ProductsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
