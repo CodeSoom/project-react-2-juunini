@@ -132,6 +132,32 @@ Right here, in this moment, wake up and rise like a lotus.
 
 3D printed in polyamide plastic.`,
   },
+  {
+    id: 6,
+    brandId: 1,
+    name: 'Overload II Leather Vest [VEGAN]',
+    price: 160.99,
+    currency: 'GBP',
+    category: 2,
+    href: 'https://www.killstar.com/collections/womens-jackets-coats/products/overload-ii-leather-vest-vegan',
+    images: [
+      'https://cdn.shopify.com/s/files/1/0228/2373/products/OVERLOAD-LEATHER_x1600.jpg?v=1446864283',
+      'https://cdn.shopify.com/s/files/1/0228/2373/products/OVERLOAD-LEATHER-B_x1600.jpg?v=1446864283',
+    ],
+    sizes: ['XXL', 'XS', 'S', 'M', 'L', 'XL'],
+    description: `OVERLOAD.
+
+Give me studs n spikes. More is more. 
+
+- Soft Vegan Leather.
+- Zip Front & Zip & Stud Pockets.
+- Satin Lining.
+- UNISEX/Slightly Fitted - if in doubt order a size up.
+
+Rad vegan vest with hundreds of mixed elements spikes and studs in soft A-grade PU Leather. Hand-crafted.
+
+with KILLSTAR Branding, 100% PU.`,
+  },
 ];
 
 export default items;
