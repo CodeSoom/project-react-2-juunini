@@ -6,7 +6,7 @@ import { fetchProduct } from 'src/services/products';
 
 const initialState: Item = {
   id: 0,
-  brand_id: 0,
+  brandId: 0,
   name: '',
   price: 0,
   currency: '',
@@ -22,29 +22,9 @@ const { actions, reducer } = createSlice({
   initialState,
   reducers: {
     setProduct(state, { payload }: PayloadAction<Item>) {
-      const {
-        brand_id: brandId,
-        name,
-        price,
-        currency,
-        category,
-        href,
-        images,
-        sizes,
-        description,
-      } = payload;
-
       return {
         ...state,
-        name,
-        brand_id: brandId,
-        href,
-        images,
-        sizes,
-        category,
-        description,
-        price,
-        currency,
+        ...payload,
       };
     },
   },

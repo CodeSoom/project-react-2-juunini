@@ -29,7 +29,7 @@ describe('items reducer', () => {
     it('changes items', () => {
       const item: Item = {
         id: 1,
-        brand_id: 1,
+        brandId: 1,
         name: 'item name',
         price: 1,
         currency: 'item currency',

@@ -17,7 +17,7 @@ const mockStore = configureStore(middlewares);
 describe('items reducer', () => {
   const initialState: Item = {
     id: 0,
-    brand_id: 0,
+    brandId: 0,
     name: '',
     price: 0,
     currency: '',
@@ -40,7 +40,7 @@ describe('items reducer', () => {
     it('changes product', () => {
       const product: Item = {
         id: 0,
-        brand_id: 1,
+        brandId: 1,
         name: 'item name',
         price: 1,
         currency: 'item currency',

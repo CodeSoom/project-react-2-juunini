@@ -6,7 +6,7 @@ import Item from './Item';
 
 export type ItemsProps = {
   items: ItemProps[];
-  shops: {[id: number]: Shop};
+  shops: Record<number, Shop>;
 };
 
 function Items({ items, shops }: ItemsProps) {
@@ -14,12 +14,12 @@ function Items({ items, shops }: ItemsProps) {
     <ul>
       {
         items.map(({
-          id, brand_id, name, price, currency, images, sizes,
+          id, brandId, name, price, currency, images, sizes,
         }) => (
           <Item
             key={id}
             id={id}
-            brand={shops[brand_id].name}
+            brand={shops[brandId].name}
             name={name}
             price={price}
             currency={currency}
