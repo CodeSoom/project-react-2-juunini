@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   // webpack will take the files from ./src/index
@@ -7,8 +8,11 @@ module.exports = {
   // and output it into /dist as bundle.js
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   // adding .ts and .tsx to resolve.extensions will help babel look for .ts and .tsx files to transpile
   resolve: {
@@ -38,6 +42,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     // favicon: './public/favicon.ico'
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './public/', to: '' },
+      ],
     }),
   ],
 };
