@@ -1,5 +1,7 @@
 import items from 'fixtures/items';
 
+import { round } from 'lodash';
+
 export type CalculatePriceProps = {
   price: number;
   exchangeRate: number;
@@ -11,11 +13,11 @@ export type CalculatePriceProps = {
 export function CalculatePrice({
   price, exchangeRate, taxRate, vatRate, deliveryFee,
 }: CalculatePriceProps) {
-  const exchangePrice = price * exchangeRate;
-  const tax = exchangePrice * taxRate;
-  const vat = (exchangePrice + tax) * vatRate;
-  const exchangeDeliveryFee = deliveryFee * exchangeRate;
-  const finalPrice = exchangePrice + tax + vat + deliveryFee;
+  const exchangePrice = round(price * exchangeRate, 2);
+  const tax = round(exchangePrice * taxRate, 2);
+  const vat = round((exchangePrice + tax) * vatRate, 2);
+  const exchangeDeliveryFee = round(deliveryFee * exchangeRate, 2);
+  const finalPrice = round(exchangePrice + tax + vat + deliveryFee, 2);
 
   return {
     exchangePrice,

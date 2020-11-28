@@ -1,3 +1,5 @@
+import { round } from 'lodash';
+
 import sampleItems from 'fixtures/items';
 import { CalculatePrice, fetchProduct } from 'src/services/products';
 
@@ -16,11 +18,11 @@ describe('products', () => {
         price, exchangeRate, taxRate, vatRate, deliveryFee,
       });
 
-      expect(exchangePrice).toBe(price * exchangeRate);
-      expect(tax).toBe(exchangePrice * taxRate);
-      expect(vat).toBe((exchangePrice + tax) * vatRate);
-      expect(exchangeDeliveryFee).toBe(deliveryFee * exchangeRate);
-      expect(finalPrice).toBe(exchangePrice + tax + vat + deliveryFee);
+      expect(exchangePrice).toBe(round(price * exchangeRate, 2));
+      expect(tax).toBe(round(exchangePrice * taxRate, 2));
+      expect(vat).toBe(round((exchangePrice + tax) * vatRate, 2));
+      expect(exchangeDeliveryFee).toBe(round(deliveryFee * exchangeRate, 2));
+      expect(finalPrice).toBe(round(exchangePrice + tax + vat + deliveryFee, 2));
     });
   });
 
