@@ -6,14 +6,17 @@ import ProductDetail from 'src/components/ProductDetail';
 import { CalculatePrice } from 'src/services/products';
 
 function ProductDetailContainer() {
-  const { product, shops, currencies } = useSelector((state: RootState) => ({
+  const {
+    product, shops, currencies, taxes,
+  } = useSelector((state: RootState) => ({
     product: state.product,
     shops: state.shops,
     currencies: state.currencies,
+    taxes: state.taxes,
   }));
 
   const {
-    brand_id: brandId,
+    brandId,
     name,
     price,
     currency,
@@ -32,9 +35,14 @@ function ProductDetailContainer() {
     name: brand,
     deliveryFee,
     minimumFreeDeliveryPrice,
+    includeTax,
   } = shops[brandId];
 
   const productDeliveryFee = price < minimumFreeDeliveryPrice ? deliveryFee : 0;
+
+  const { taxRate, vatRate } = includeTax
+    ? { taxRate: 0, vatRate: 0 }
+    : taxes[product.category];
 
   const {
     exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
