@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { CalculatePrice } from 'src/services/products';
-
 export type ProductDetailProps = {
   name: string;
   brand: string;
@@ -16,25 +14,26 @@ export type ProductDetailProps = {
   taxRate: number;
   vatRate: number;
   deliveryFee: number;
+
+  exchangePrice: number;
+  tax: number;
+  vat: number;
+  exchangeDeliveryFee: number;
+  finalPrice: number;
 };
 
 function ProductDetail({
   name, brand, href, images, sizes, description,
   price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
+  exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
 }: ProductDetailProps) {
-  const {
-    exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
-  } = CalculatePrice({
-    price, exchangeRate, taxRate, vatRate, deliveryFee,
-  });
-
   return (
     <div>
       <p>{name}</p>
       <p>{brand}</p>
       <a href={href}>브랜드 페이지로 이동</a>
       <div>
-        {images.map((src) => (<img key={src} src={src} alt="" />))}
+        {images.map((src) => <img key={src} src={src} alt="" />)}
       </div>
       <p>
         {
@@ -118,6 +117,10 @@ function ProductDetail({
         =
         {' '}
         {finalPrice}
+      </p>
+      <p>
+        {Math.round(finalPrice)}
+        원
       </p>
     </div>
   );

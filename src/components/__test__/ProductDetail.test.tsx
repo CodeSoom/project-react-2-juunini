@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { CalculatePrice } from 'src/services/products';
 import ProductDetail, { ProductDetailProps } from '../ProductDetail';
 
 test('ProductDetail', () => {
@@ -19,6 +18,12 @@ test('ProductDetail', () => {
     taxRate,
     vatRate,
     deliveryFee,
+
+    exchangePrice,
+    tax,
+    vat,
+    exchangeDeliveryFee,
+    finalPrice,
   }: ProductDetailProps = {
     name: 'product name',
     brand: 'brand name',
@@ -30,9 +35,15 @@ test('ProductDetail', () => {
     price: 150,
     currency: '£',
     exchangeRate: 1478.02,
-    taxRate: 13,
-    vatRate: 10,
+    taxRate: 0.13,
+    vatRate: 0.1,
     deliveryFee: 20,
+
+    exchangePrice: 211703,
+    tax: 28821.39,
+    vat: 24052.439,
+    exchangeDeliveryFee: 29560.4,
+    finalPrice: 294164.229,
   };
 
   render(<ProductDetail
@@ -48,6 +59,11 @@ test('ProductDetail', () => {
     taxRate={taxRate}
     vatRate={vatRate}
     deliveryFee={deliveryFee}
+    exchangePrice={exchangePrice}
+    tax={tax}
+    vat={vat}
+    exchangeDeliveryFee={exchangeDeliveryFee}
+    finalPrice={finalPrice}
   />);
 
   const toBeInTheDocument = (target: string) => {
@@ -67,19 +83,10 @@ test('ProductDetail', () => {
   toBeInTheDocument(vatRate.toString());
   toBeInTheDocument(deliveryFee.toString());
 
-  const {
-    exchangePrice,
-    tax,
-    vat,
-    exchangeDeliveryFee,
-    finalPrice,
-  } = CalculatePrice({
-    price, exchangeRate, taxRate, vatRate, deliveryFee,
-  });
-
   toBeInTheDocument(exchangePrice.toString());
   toBeInTheDocument(tax.toString());
   toBeInTheDocument(vat.toString());
   toBeInTheDocument(exchangeDeliveryFee.toString());
   toBeInTheDocument(finalPrice.toString());
+  toBeInTheDocument(Math.round(finalPrice).toString());
 });
