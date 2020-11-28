@@ -18,18 +18,6 @@ jest.mock('src/services/shops');
 
 describe('ProductDetailPage', () => {
   const dispatch = jest.fn();
-  const productInitialState = {
-    id: 0,
-    brandId: 0,
-    name: '',
-    price: 0,
-    currency: '',
-    category: 0,
-    href: '',
-    images: [],
-    sizes: [],
-    description: '',
-  };
 
   beforeEach(() => {
     dispatch.mockClear();

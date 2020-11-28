@@ -21,41 +21,42 @@ export default function ProductsContainer() {
     return (<p>loading...</p>);
   }
 
-  const CombinedProducts: ProductProps[] = Object.values(products).reduce((combinedProducts, product) => {
-    const {
-      id, brandId, name, price, currency,
-      category, images, sizes,
-    } = product;
-    const image = images[0];
-    const {
-      name: brand, includeTax,
-      deliveryFee, minimumFreeDeliveryPrice,
-    } = shops[brandId];
-    const { exchangeRate } = currencies[currency];
-    const productDeliveryFee = price < minimumFreeDeliveryPrice ? deliveryFee : 0;
-    const { taxRate, vatRate } = includeTax
-      ? { taxRate: 0, vatRate: 0 }
-      : taxes[category];
+  const CombinedProducts: ProductProps[] = Object.values(products)
+    .reduce((combinedProducts, product) => {
+      const {
+        id, brandId, name, price, currency,
+        category, images, sizes,
+      } = product;
+      const image = images[0];
+      const {
+        name: brand, includeTax,
+        deliveryFee, minimumFreeDeliveryPrice,
+      } = shops[brandId];
+      const { exchangeRate } = currencies[currency];
+      const productDeliveryFee = price < minimumFreeDeliveryPrice ? deliveryFee : 0;
+      const { taxRate, vatRate } = includeTax
+        ? { taxRate: 0, vatRate: 0 }
+        : taxes[category];
 
-    const {
-      finalPrice,
-    } = CalculatePrice({
-      price, exchangeRate, taxRate, vatRate, deliveryFee: productDeliveryFee,
-    });
+      const {
+        finalPrice,
+      } = CalculatePrice({
+        price, exchangeRate, taxRate, vatRate, deliveryFee: productDeliveryFee,
+      });
 
-    return [
-      ...combinedProducts,
-      {
-        id,
-        brand,
-        name,
-        finalPrice: round(finalPrice),
-        currency: currencies.KRW.symbol,
-        image,
-        sizes,
-      },
-    ];
-  }, [] as ProductProps[]);
+      return [
+        ...combinedProducts,
+        {
+          id,
+          brand,
+          name,
+          finalPrice: round(finalPrice),
+          currency: currencies.KRW.symbol,
+          image,
+          sizes,
+        },
+      ];
+    }, [] as ProductProps[]);
 
   return (
     <Products products={CombinedProducts} />
