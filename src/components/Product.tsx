@@ -1,5 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import {
+  Card, Img, BrandLogo,
+  CardLink, Name, Price,
+  SizeWrapper, Size,
+} from 'src/layout/products';
 
 export type ProductProps = {
   id: number;
@@ -15,37 +20,26 @@ function Product({
   id, brand, name, finalPrice, currency, image, sizes,
 }: ProductProps) {
   return (
-    <li>
-      <Link to={`/products/${id}`}>
-        <img src={image} alt="product" />
-        <p>
-          brand:
-          {' '}
-          {brand}
-        </p>
-        <p>
-          name:
-          {' '}
+    <Card>
+      <CardLink to={`/products/${id}`}>
+        <BrandLogo src={`/img/brands/${brand}.png`} alt="" />
+        <Img src={image} alt="product" />
+        <Name>
           {name}
-        </p>
-        <p>
-          price:
-          {' '}
+        </Name>
+        <Price>
           {currency}
           {finalPrice.toLocaleString()}
-        </p>
-        <p>
-          sizes:
-          {' '}
+        </Price>
+        <SizeWrapper>
           {sizes.map((size) => (
-            <span key={size}>
+            <Size key={size}>
               {size}
-              {' '}
-            </span>
+            </Size>
           ))}
-        </p>
-      </Link>
-    </li>
+        </SizeWrapper>
+      </CardLink>
+    </Card>
   );
 }
 
