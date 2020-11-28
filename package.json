@@ -7,7 +7,7 @@
   "author": "juunini <juuni.ni.i@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot",
+    "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "test": "yarn coverage && start-server-and-test start http://localhost:8080 test:e2e",
     "test:e2e": "codeceptjs run --steps",
@@ -23,6 +23,7 @@
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
     "@codeceptjs/configure": "^0.6.2",
+    "@emotion/babel-plugin": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@types/jest": "^26.0.15",
@@ -66,6 +67,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
     "@reduxjs/toolkit": "^1.4.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",

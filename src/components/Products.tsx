@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Product, { ProductProps } from './Product';
+import Product, { ProductProps } from 'src/components/Product';
+import { List } from 'src/layout/products';
 
 export type ProductsProps = {
   products: ProductProps[];
@@ -8,7 +9,7 @@ export type ProductsProps = {
 
 function Products({ products }: ProductsProps) {
   return (
-    <ul>
+    <List>
       {
         products.map(({
           id, brand, name, finalPrice, currency, image, sizes,
@@ -25,7 +26,7 @@ function Products({ products }: ProductsProps) {
           />
         ))
       }
-    </ul>
+    </List>
   );
 }
 

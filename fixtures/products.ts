@@ -1,7 +1,7 @@
 const products = [
   {
     id: 1,
-    brandId: 1,
+    brandId: 2,
     name: 'Stellar Oversized Jumper',
     price: 48,
     currency: 'GBP',
@@ -26,7 +26,7 @@ Oversized fit.`,
   },
   {
     id: 2,
-    brandId: 1,
+    brandId: 2,
     name: 'Toadstool Midi Dress',
     price: 42,
     currency: 'GBP',
@@ -50,7 +50,7 @@ Non stretch fabric.
   },
   {
     id: 3,
-    brandId: 2,
+    brandId: 1,
     name: 'Empire Studded Boots',
     price: 94.99,
     currency: 'GBP',
@@ -81,7 +81,7 @@ With KILLSTAR Branding. 100% PU.`,
   },
   {
     id: 4,
-    brandId: 2,
+    brandId: 1,
     name: 'Pagan Round Blanket [B]',
     price: 29.99,
     currency: 'GBP',

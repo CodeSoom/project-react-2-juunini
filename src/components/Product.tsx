@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { isEmpty } from 'lodash';
+
+import {
+  Card, Img, BrandLogo,
+  CardLink, Name, Price,
+  SizeWrapper, Size, Soldout,
+} from 'src/layout/products';
 
 export type ProductProps = {
   id: number;
@@ -14,38 +20,31 @@ export type ProductProps = {
 function Product({
   id, brand, name, finalPrice, currency, image, sizes,
 }: ProductProps) {
+  const Sizes = isEmpty(sizes)
+    ? <Soldout>Sold Out</Soldout>
+    : sizes.map((size) => (
+      <Size key={size}>
+        {size}
+      </Size>
+    ));
+
   return (
-    <li>
-      <Link to={`/products/${id}`}>
-        <img src={image} alt="product" />
-        <p>
-          brand:
-          {' '}
-          {brand}
-        </p>
-        <p>
-          name:
-          {' '}
+    <Card>
+      <CardLink to={`/products/${id}`}>
+        <BrandLogo src={`/img/brands/${brand}.png`} alt="" />
+        <Img src={image} alt="product" />
+        <Name>
           {name}
-        </p>
-        <p>
-          price:
-          {' '}
+        </Name>
+        <Price>
           {currency}
           {finalPrice.toLocaleString()}
-        </p>
-        <p>
-          sizes:
-          {' '}
-          {sizes.map((size) => (
-            <span key={size}>
-              {size}
-              {' '}
-            </span>
-          ))}
-        </p>
-      </Link>
-    </li>
+        </Price>
+        <SizeWrapper>
+          {Sizes}
+        </SizeWrapper>
+      </CardLink>
+    </Card>
   );
 }
 
