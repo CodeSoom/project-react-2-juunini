@@ -6,14 +6,19 @@ import {
 
 import ProductsPage from 'src/pages/ProductsPage';
 import ProductDetailPage from 'src/pages/ProductDetailPage';
-import NotFoundPage from './pages/NotFoundPage';
+import NotFoundPage from 'src/pages/NotFoundPage';
+import { Wrapper, Main } from 'src/layout';
 
 export default function App() {
   return (
-    <Switch>
-      <Route exact path="/" component={ProductsPage} />
-      <Route path="/products/:id" component={ProductDetailPage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <Wrapper>
+      <Main>
+        <Switch>
+          <Route exact path="/" component={ProductsPage} />
+          <Route path="/products/:id" component={ProductDetailPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Main>
+    </Wrapper>
   );
 }
