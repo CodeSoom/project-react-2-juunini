@@ -5,6 +5,7 @@ export type Shop = {
   name: string;
   deliveryFee: number;
   minimumFreeDeliveryPrice: number;
+  includeTax: boolean;
 };
 
 export async function fetchShops(): Promise<Shop[]> {
