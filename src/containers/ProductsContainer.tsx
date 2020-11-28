@@ -7,7 +7,7 @@ import Items from 'src/components/Products';
 import { ProductProps } from 'src/components/Product';
 import { CalculatePrice } from 'src/services/products';
 
-export default function ItemsContainer() {
+export default function ProductsContainer() {
   const {
     items, shops, currencies, taxes,
   } = useSelector((state: RootState) => ({

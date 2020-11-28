@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import ItemsContainer from 'src/containers/ItemsContainer';
+import ProductsContainer from 'src/containers/ProductsContainer';
 import { loadProducts } from 'src/redux/products';
 import { loadShops } from 'src/redux/shops';
 import { loadTaxes } from 'src/redux/taxes';
@@ -17,5 +17,5 @@ export default function ProductsPage() {
     dispatch(loadCurrencies());
   });
 
-  return (<ItemsContainer />);
+  return (<ProductsContainer />);
 }
