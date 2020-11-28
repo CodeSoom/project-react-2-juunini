@@ -209,6 +209,12 @@ const taxes = [
     taxRate: 0,
     vatRate: 0.1,
   },
+  {
+    id: 36,
+    name: 'accessory',
+    taxRate: 0.8,
+    vatRate: 0.1,
+  },
 ];
 
 export default taxes;

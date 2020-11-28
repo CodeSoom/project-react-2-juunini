@@ -33,6 +33,7 @@ describe('items reducer', () => {
         name: 'item name',
         price: 1,
         currency: 'item currency',
+        category: 1,
         href: 'item href',
         images: ['item image 1'],
         sizes: ['item size 1'],

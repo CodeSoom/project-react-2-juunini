@@ -6,6 +6,7 @@ export type Item = {
   name: string;
   price: number;
   currency: string;
+  category: number;
   href: string;
   images: string[];
   sizes: string[];
