@@ -5,3 +5,7 @@ export function CalculatePrice() {
 export async function fetchProduct() {
   return Promise.resolve({});
 }
+
+export async function fetchProducts() {
+  return Promise.resolve([]);
+}

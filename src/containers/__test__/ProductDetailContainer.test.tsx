@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
 import shops from 'fixtures/shops';
-import items from 'fixtures/items';
+import products from 'fixtures/products';
 import currencies from 'fixtures/currencies';
 import taxes from 'fixtures/taxes';
 import ProductDetailContainer from '../ProductDetailContainer';
@@ -20,8 +20,8 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
-          product: items[0],
+          products: {},
+          product: products[0],
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -44,8 +44,8 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
-          product: items[4],
+          products: {},
+          product: products[4],
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -68,8 +68,8 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
-          product: { ...items[0], price: 300 },
+          products: {},
+          product: { ...products[0], price: 300 },
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -89,8 +89,8 @@ describe('ProductDetailContainer', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
           shops: {},
-          items: {},
-          product: { ...items[0], price: 300 },
+          products: {},
+          product: { ...products[0], price: 300 },
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -115,8 +115,8 @@ describe('ProductDetailContainer', () => {
             ...map,
             [shop.id]: shop,
           }), {}),
-          items: {},
-          product: { ...items[0], price: 300 },
+          products: {},
+          product: { ...products[0], price: 300 },
           currencies: {},
           taxes: taxes.reduce((map, tax) => ({
             ...map,
