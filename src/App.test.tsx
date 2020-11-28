@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
 import shops from 'fixtures/shops';
-import items from 'fixtures/items';
+import products from 'fixtures/products';
 import currencies from 'fixtures/currencies';
 import taxes from 'fixtures/taxes';
 import App from './App';
@@ -19,11 +19,11 @@ describe('App', () => {
       ...map,
       [shop.id]: shop,
     }), {}),
-    items: items.reduce((map, item) => ({
+    items: products.reduce((map, item) => ({
       ...map,
       [item.id]: item,
     }), {}),
-    product: items[0],
+    product: products[0],
     currencies: currencies.reduce((map, currency) => ({
       ...map,
       [currency.name]: currency,

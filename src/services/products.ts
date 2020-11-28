@@ -1,4 +1,4 @@
-import items from 'fixtures/items';
+import products from 'fixtures/products';
 
 import { round } from 'lodash';
 
@@ -29,5 +29,5 @@ export function CalculatePrice({
 }
 
 export async function fetchProduct(id: number) {
-  return Promise.resolve(items[id - 1]);
+  return Promise.resolve(products[id - 1]);
 }

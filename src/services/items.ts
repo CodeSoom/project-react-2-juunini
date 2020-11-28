@@ -1,4 +1,4 @@
-import items from 'fixtures/items';
+import products from 'fixtures/products';
 
 export type Item = {
   id: number;
@@ -14,5 +14,5 @@ export type Item = {
 };
 
 export async function fetchItems(): Promise<Item[]> {
-  return Promise.resolve(items);
+  return Promise.resolve(products);
 }

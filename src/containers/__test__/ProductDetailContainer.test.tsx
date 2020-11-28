@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
 import shops from 'fixtures/shops';
-import items from 'fixtures/items';
+import products from 'fixtures/products';
 import currencies from 'fixtures/currencies';
 import taxes from 'fixtures/taxes';
 import ProductDetailContainer from '../ProductDetailContainer';
@@ -21,7 +21,7 @@ describe('ProductDetailContainer', () => {
             [shop.id]: shop,
           }), {}),
           items: {},
-          product: items[0],
+          product: products[0],
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -45,7 +45,7 @@ describe('ProductDetailContainer', () => {
             [shop.id]: shop,
           }), {}),
           items: {},
-          product: items[4],
+          product: products[4],
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -69,7 +69,7 @@ describe('ProductDetailContainer', () => {
             [shop.id]: shop,
           }), {}),
           items: {},
-          product: { ...items[0], price: 300 },
+          product: { ...products[0], price: 300 },
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -90,7 +90,7 @@ describe('ProductDetailContainer', () => {
         .mockImplementation((selector: (arg: RootState) => void) => selector({
           shops: {},
           items: {},
-          product: { ...items[0], price: 300 },
+          product: { ...products[0], price: 300 },
           currencies: currencies.reduce((map, currency) => ({
             ...map,
             [currency.name]: currency,
@@ -116,7 +116,7 @@ describe('ProductDetailContainer', () => {
             [shop.id]: shop,
           }), {}),
           items: {},
-          product: { ...items[0], price: 300 },
+          product: { ...products[0], price: 300 },
           currencies: {},
           taxes: taxes.reduce((map, tax) => ({
             ...map,

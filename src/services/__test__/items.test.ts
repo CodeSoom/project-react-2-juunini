@@ -1,4 +1,4 @@
-import sampleItems from 'fixtures/items';
+import sampleItems from 'fixtures/products';
 import { fetchItems } from '../items';
 
 test('items', async () => {

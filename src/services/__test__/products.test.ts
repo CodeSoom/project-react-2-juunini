@@ -1,6 +1,6 @@
 import { round } from 'lodash';
 
-import sampleItems from 'fixtures/items';
+import sampleItems from 'fixtures/products';
 import { CalculatePrice, fetchProduct } from 'src/services/products';
 
 describe('products', () => {

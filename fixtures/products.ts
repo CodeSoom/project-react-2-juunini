@@ -1,4 +1,4 @@
-const items = [
+const products = [
   {
     id: 1,
     brandId: 1,
@@ -160,4 +160,4 @@ with KILLSTAR Branding, 100% PU.`,
   },
 ];
 
-export default items;
+export default products;
