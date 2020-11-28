@@ -1,4 +1,5 @@
-import { CalculatePrice } from 'src/services/products';
+import sampleItems from 'fixtures/items';
+import { CalculatePrice, fetchProduct } from 'src/services/products';
 
 describe('products', () => {
   describe('CalculatePrice', () => {
@@ -20,6 +21,14 @@ describe('products', () => {
       expect(vat).toBe((exchangePrice + tax) * vatRate);
       expect(exchangeDeliveryFee).toBe(deliveryFee * exchangeRate);
       expect(finalPrice).toBe(exchangePrice + tax + vat + deliveryFee);
+    });
+  });
+
+  describe('fetchProduct', () => {
+    it('returns product', async () => {
+      const product = await fetchProduct(1);
+
+      expect(product).toEqual(sampleItems[0]);
     });
   });
 });

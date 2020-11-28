@@ -13,18 +13,14 @@ function ProductDetailContainer() {
   }));
 
   const {
+    brand_id: brandId,
     name,
-    brandId,
+    price,
+    currency,
     href,
     images,
     sizes,
     description,
-
-    price,
-    currency,
-    exchangeRate,
-    taxRate,
-    vatRate,
   } = product;
 
   const {

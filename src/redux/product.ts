@@ -1,45 +1,53 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Dispatch } from 'react';
 
-const initialState = {};
+import { Item } from 'src/services/items';
+import { fetchProduct } from 'src/services/products';
+
+const initialState: Item = {
+  id: 0,
+  brand_id: 0,
+  name: '',
+  price: 0,
+  currency: '',
+  href: '',
+  images: [],
+  sizes: [],
+  description: '',
+};
 
 const { actions, reducer } = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    setProduct(state, { payload }) {
+    setProduct(state, { payload }: PayloadAction<Item>) {
       const {
+        brand_id: brandId,
         name,
-        brandId,
+        price,
+        currency,
         href,
         images,
         sizes,
         description,
-        price,
-        currency,
-        exchangeRate,
-        taxRate,
-        vatRate,
       } = payload;
 
       return {
         ...state,
         name,
-        brandId,
+        brand_id: brandId,
         href,
         images,
         sizes,
         description,
         price,
         currency,
-        exchangeRate,
-        taxRate,
-        vatRate,
       };
     },
   },
 });
 
-export function loadProduct(id) {
+export function loadProduct(id: number) {
   return async (dispatch: Dispatch<PayloadAction<unknown>>) => {
     const product = await fetchProduct(id);
 

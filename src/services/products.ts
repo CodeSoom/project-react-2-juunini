@@ -1,3 +1,5 @@
+import items from 'fixtures/items';
+
 export type CalculatePriceProps = {
   price: number;
   exchangeRate: number;
@@ -22,4 +24,8 @@ export function CalculatePrice({
     exchangeDeliveryFee,
     finalPrice,
   };
+}
+
+export async function fetchProduct(id: number) {
+  return Promise.resolve(items[id - 1]);
 }
