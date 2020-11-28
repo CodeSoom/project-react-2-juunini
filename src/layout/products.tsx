@@ -87,6 +87,12 @@ const Size = styled.small({
   padding: '0 0.5em',
 });
 
+const Soldout = styled.small({
+  padding: '0 0.5em',
+
+  color: '#CA015E',
+});
+
 export {
   List,
   Card,
@@ -97,4 +103,5 @@ export {
   Price,
   SizeWrapper,
   Size,
+  Soldout,
 };

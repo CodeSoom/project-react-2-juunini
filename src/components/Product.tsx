@@ -1,9 +1,10 @@
 import React from 'react';
+import { isEmpty } from 'lodash';
 
 import {
   Card, Img, BrandLogo,
   CardLink, Name, Price,
-  SizeWrapper, Size,
+  SizeWrapper, Size, Soldout,
 } from 'src/layout/products';
 
 export type ProductProps = {
@@ -19,6 +20,14 @@ export type ProductProps = {
 function Product({
   id, brand, name, finalPrice, currency, image, sizes,
 }: ProductProps) {
+  const Sizes = isEmpty(sizes)
+    ? <Soldout>Sold Out</Soldout>
+    : sizes.map((size) => (
+      <Size key={size}>
+        {size}
+      </Size>
+    ));
+
   return (
     <Card>
       <CardLink to={`/products/${id}`}>
@@ -32,11 +41,7 @@ function Product({
           {finalPrice.toLocaleString()}
         </Price>
         <SizeWrapper>
-          {sizes.map((size) => (
-            <Size key={size}>
-              {size}
-            </Size>
-          ))}
+          {Sizes}
         </SizeWrapper>
       </CardLink>
     </Card>
