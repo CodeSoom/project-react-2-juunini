@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Dispatch } from 'react';
 
-import { Item } from 'src/services/items';
-import { fetchProduct } from 'src/services/products';
+import { Product, fetchProduct } from 'src/services/products';
 
-const initialState: Item = {
+const initialState: Product = {
   id: 0,
   brandId: 0,
   name: '',
@@ -21,7 +20,7 @@ const { actions, reducer } = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    setProduct(state, { payload }: PayloadAction<Item>) {
+    setProduct(state, { payload }: PayloadAction<Product>) {
       return {
         ...state,
         ...payload,
@@ -31,7 +30,7 @@ const { actions, reducer } = createSlice({
 });
 
 export function loadProduct(id: number) {
-  return async (dispatch: Dispatch<PayloadAction<Item>>) => {
+  return async (dispatch: Dispatch<PayloadAction<Product>>) => {
     const product = await fetchProduct(id);
 
     dispatch(actions.setProduct(product));

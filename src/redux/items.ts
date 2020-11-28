@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Dispatch } from 'react';
 
-import { fetchItems, Item } from '../services/items';
+import { fetchProducts, Product } from 'src/services/products';
 
-const initialState: Record<number, Item> = {};
+const initialState: Record<number, Product> = {};
 
 const { actions, reducer } = createSlice({
   name: 'items',
   initialState,
   reducers: {
-    setItems(state, { payload }: PayloadAction<Item[]>) {
+    setItems(state, { payload }: PayloadAction<Product[]>) {
       return payload.reduce((items, item) => ({
         ...items,
         [item.id]: item,
@@ -19,8 +19,8 @@ const { actions, reducer } = createSlice({
 });
 
 export function loadItems() {
-  return async (dispatch: Dispatch<PayloadAction<Item[]>>) => {
-    const items = await fetchItems();
+  return async (dispatch: Dispatch<PayloadAction<Product[]>>) => {
+    const items = await fetchProducts();
 
     dispatch(actions.setItems(items));
   };

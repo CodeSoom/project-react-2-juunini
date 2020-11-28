@@ -3,7 +3,7 @@ import { Dispatch } from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { Item } from 'src/services/items';
+import { Product } from 'src/services/products';
 import reducer, {
   setProduct,
   loadProduct,
@@ -15,7 +15,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('items reducer', () => {
-  const initialState: Item = {
+  const initialState: Product = {
     id: 0,
     brandId: 0,
     name: '',
@@ -38,7 +38,7 @@ describe('items reducer', () => {
 
   describe('setProduct', () => {
     it('changes product', () => {
-      const product: Item = {
+      const product: Product = {
         id: 0,
         brandId: 1,
         name: 'item name',

@@ -3,7 +3,7 @@ import { Dispatch } from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { Item } from 'src/services/items';
+import { Product } from 'src/services/products';
 import reducer, {
   setItems,
   loadItems,
@@ -15,7 +15,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('items reducer', () => {
-  const initialState: Record<number, Item> = {};
+  const initialState: Record<number, Product> = {};
 
   context('when previous state is undefined', () => {
     it('returns initialState', () => {
@@ -27,7 +27,7 @@ describe('items reducer', () => {
 
   describe('setItems', () => {
     it('changes items', () => {
-      const item: Item = {
+      const item: Product = {
         id: 1,
         brandId: 1,
         name: 'item name',
