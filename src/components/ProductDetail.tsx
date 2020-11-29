@@ -7,6 +7,13 @@ import {
   Wrapper,
   ImageGalleryWrapper,
   ContentsWrapper,
+  BrandLogoWrapper,
+  BrandLogo,
+  Name,
+  SizeWraper,
+  Size,
+  DescriptionWrapper,
+  DescriptionRow,
 } from 'src/layout/ProductDetail';
 
 export type ProductDetailProps = {
@@ -37,6 +44,7 @@ function ProductDetail({
   exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
 }: ProductDetailProps) {
   const imageGallery = images.map((image) => ({ original: image, thumbnail: image }));
+  const descriptionRows = description.split('\n').map((row) => (<DescriptionRow>{row}</DescriptionRow>));
 
   return (
     <Wrapper>
@@ -51,20 +59,27 @@ function ProductDetail({
         />
       </ImageGalleryWrapper>
       <ContentsWrapper>
-        <p>{name}</p>
-        <p>{brand}</p>
+        <BrandLogoWrapper>
+          <BrandLogo src={`/img/brands/${brand}.png`} />
+        </BrandLogoWrapper>
+        <Name>{name}</Name>
         <a href={href} target="_new">브랜드 페이지로 이동</a>
-        <p>
+        <SizeWraper>
           {
             sizes.map((size) => (
-              <span key={size}>
+              <Size key={size}>
                 {size}
-                {' '}
-              </span>
+              </Size>
             ))
           }
-        </p>
-        <p>{description}</p>
+        </SizeWraper>
+        <DescriptionWrapper>
+          {
+            description
+              .split('\n')
+              .map((row) => <DescriptionRow key={row}>{row}</DescriptionRow>)
+          }
+        </DescriptionWrapper>
 
         <p>
           {currency}
