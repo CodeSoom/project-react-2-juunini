@@ -1,5 +1,5 @@
 import React from 'react';
-import { round } from 'lodash';
+import { round, isEmpty } from 'lodash';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -17,6 +17,7 @@ import {
   PriceRowCalculate,
   SizeWraper,
   Size,
+  SoldOut,
   DescriptionWrapper,
   DescriptionRow,
 } from 'src/layout/ProductDetail';
@@ -113,11 +114,15 @@ function ProductDetail({
 
         <SizeWraper>
           {
-            sizes.map((size) => (
-              <Size key={size}>
-                {size}
-              </Size>
-            ))
+            isEmpty(sizes)
+              ? <SoldOut>Sold Out</SoldOut>
+              : (
+                sizes.map((size) => (
+                  <Size key={size}>
+                    {size}
+                  </Size>
+                ))
+              )
           }
         </SizeWraper>
         <DescriptionWrapper>

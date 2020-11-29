@@ -72,6 +72,10 @@ const Size = styled.span({
   color: '#333',
 });
 
+const SoldOut = styled.span({
+  color: '#CA015E',
+});
+
 const DescriptionWrapper = styled.div({
   padding: '1em 0',
   marginBottom: '1em',
@@ -99,6 +103,7 @@ export {
   PriceRowCalculate,
   SizeWraper,
   Size,
+  SoldOut,
   DescriptionWrapper,
   DescriptionRow,
 };
