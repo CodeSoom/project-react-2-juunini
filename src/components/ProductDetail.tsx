@@ -74,22 +74,31 @@ function ProductDetail({
           <PriceRow>
             <PriceRowTitle>원래가격</PriceRowTitle>
             <PriceRowValue>{`${currency}${price}`}</PriceRowValue>
+            <PriceRowCalculate>{`${!taxRate && !vatRate ? 'inc. tax' : ''}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
             <PriceRowTitle>환전가격</PriceRowTitle>
             <PriceRowValue>{`₩${exchangePrice}`}</PriceRowValue>
             <PriceRowCalculate>{`${price} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
-          <PriceRow>
-            <PriceRowTitle>관세</PriceRowTitle>
-            <PriceRowValue>{`₩${tax}`}</PriceRowValue>
-            <PriceRowCalculate>{`${exchangePrice} × ${taxRate}`}</PriceRowCalculate>
-          </PriceRow>
-          <PriceRow>
-            <PriceRowTitle>부가세</PriceRowTitle>
-            <PriceRowValue>{`₩${vat}`}</PriceRowValue>
-            <PriceRowCalculate>{`(${exchangePrice} + ${tax}) × ${vatRate}`}</PriceRowCalculate>
-          </PriceRow>
+          {
+            taxRate ? (
+              <PriceRow>
+                <PriceRowTitle>관세</PriceRowTitle>
+                <PriceRowValue>{`₩${tax}`}</PriceRowValue>
+                <PriceRowCalculate>{`${exchangePrice} × ${taxRate}`}</PriceRowCalculate>
+              </PriceRow>
+            ) : null
+          }
+          {
+            vatRate ? (
+              <PriceRow>
+                <PriceRowTitle>부가세</PriceRowTitle>
+                <PriceRowValue>{`₩${vat}`}</PriceRowValue>
+                <PriceRowCalculate>{`(${exchangePrice} + ${tax}) × ${vatRate}`}</PriceRowCalculate>
+              </PriceRow>
+            ) : null
+          }
           <PriceRow>
             <PriceRowTitle>배송비</PriceRowTitle>
             <PriceRowValue>{`₩${exchangeDeliveryFee}`}</PriceRowValue>
@@ -98,7 +107,7 @@ function ProductDetail({
           <PriceRow>
             <PriceRowTitle>최종가격</PriceRowTitle>
             <PriceRowValue>{`₩${round(finalPrice)}`}</PriceRowValue>
-            <PriceRowCalculate>{`${exchangePrice} + ${tax} + ${vat} + ${exchangeDeliveryFee}`}</PriceRowCalculate>
+            <PriceRowCalculate>{`${exchangePrice}${tax ? ` + ${tax}` : ''}${vat ? ` + ${vat}` : ''} + ${exchangeDeliveryFee}`}</PriceRowCalculate>
           </PriceRow>
         </PriceWrapper>
 
