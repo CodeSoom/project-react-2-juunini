@@ -73,19 +73,19 @@ function ProductDetail({
         <PriceWrapper>
           <PriceRow>
             <PriceRowTitle>원래가격</PriceRowTitle>
-            <PriceRowValue>{`${currency}${price}`}</PriceRowValue>
+            <PriceRowValue>{`${currency}${price.toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${!taxRate && !vatRate ? 'inc. tax' : ''}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
             <PriceRowTitle>환전가격</PriceRowTitle>
-            <PriceRowValue>{`₩${exchangePrice}`}</PriceRowValue>
+            <PriceRowValue>{`₩${round(exchangePrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${price} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
           {
             taxRate ? (
               <PriceRow>
                 <PriceRowTitle>관세</PriceRowTitle>
-                <PriceRowValue>{`₩${tax}`}</PriceRowValue>
+                <PriceRowValue>{`₩${round(tax).toLocaleString()}`}</PriceRowValue>
                 <PriceRowCalculate>{`${exchangePrice} × ${taxRate}`}</PriceRowCalculate>
               </PriceRow>
             ) : null
@@ -94,19 +94,19 @@ function ProductDetail({
             vatRate ? (
               <PriceRow>
                 <PriceRowTitle>부가세</PriceRowTitle>
-                <PriceRowValue>{`₩${vat}`}</PriceRowValue>
+                <PriceRowValue>{`₩${round(vat).toLocaleString()}`}</PriceRowValue>
                 <PriceRowCalculate>{`(${exchangePrice} + ${tax}) × ${vatRate}`}</PriceRowCalculate>
               </PriceRow>
             ) : null
           }
           <PriceRow>
             <PriceRowTitle>배송비</PriceRowTitle>
-            <PriceRowValue>{`₩${exchangeDeliveryFee}`}</PriceRowValue>
+            <PriceRowValue>{`₩${round(exchangeDeliveryFee).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${deliveryFee} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
             <PriceRowTitle>최종가격</PriceRowTitle>
-            <PriceRowValue>{`₩${round(finalPrice)}`}</PriceRowValue>
+            <PriceRowValue>{`₩${round(finalPrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${exchangePrice}${tax ? ` + ${tax}` : ''}${vat ? ` + ${vat}` : ''} + ${exchangeDeliveryFee}`}</PriceRowCalculate>
           </PriceRow>
         </PriceWrapper>
