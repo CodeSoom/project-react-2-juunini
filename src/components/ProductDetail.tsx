@@ -1,5 +1,7 @@
 import React from 'react';
 import { round } from 'lodash';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 export type ProductDetailProps = {
   name: string;
@@ -28,14 +30,14 @@ function ProductDetail({
   price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
   exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
 }: ProductDetailProps) {
+  const imageGallery = images.map((image) => ({ original: image, thumbnail: image }));
+
   return (
     <div>
+      <ImageGallery items={imageGallery} />
       <p>{name}</p>
       <p>{brand}</p>
       <a href={href} target="_new">브랜드 페이지로 이동</a>
-      <div>
-        {images.map((src) => <img key={src} src={src} alt="" />)}
-      </div>
       <p>
         {
           sizes.map((size) => (
