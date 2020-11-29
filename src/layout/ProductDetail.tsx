@@ -29,6 +29,29 @@ const Name = styled.h2({
   color: '#333',
 });
 
+const PriceWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '1em',
+});
+
+const PriceRow = styled.p({
+  display: 'flex',
+  flexDirection: 'row',
+});
+
+const PriceRowTitle = styled.span({
+  width: '4.5em',
+});
+
+const PriceRowValue = styled.strong({
+  width: '5.5em',
+});
+
+const PriceRowCalculate = styled.small({
+  flexGrow: 1,
+});
+
 const SizeWraper = styled.div({
   display: 'flex',
   flexDirection: 'row',
@@ -69,6 +92,11 @@ export {
   BrandLogoWrapper,
   BrandLogo,
   Name,
+  PriceWrapper,
+  PriceRow,
+  PriceRowTitle,
+  PriceRowValue,
+  PriceRowCalculate,
   SizeWraper,
   Size,
   DescriptionWrapper,

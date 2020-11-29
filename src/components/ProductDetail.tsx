@@ -10,6 +10,11 @@ import {
   BrandLogoWrapper,
   BrandLogo,
   Name,
+  PriceWrapper,
+  PriceRow,
+  PriceRowTitle,
+  PriceRowValue,
+  PriceRowCalculate,
   SizeWraper,
   Size,
   DescriptionWrapper,
@@ -44,7 +49,6 @@ function ProductDetail({
   exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
 }: ProductDetailProps) {
   const imageGallery = images.map((image) => ({ original: image, thumbnail: image }));
-  const descriptionRows = description.split('\n').map((row) => (<DescriptionRow>{row}</DescriptionRow>));
 
   return (
     <Wrapper>
@@ -63,7 +67,41 @@ function ProductDetail({
           <BrandLogo src={`/img/brands/${brand}.png`} />
         </BrandLogoWrapper>
         <Name>{name}</Name>
-        <a href={href} target="_new">브랜드 페이지로 이동</a>
+
+        <a href={href} target="_new" style={{ display: 'block', marginBottom: '1em' }}>브랜드 페이지로 이동</a>
+
+        <PriceWrapper>
+          <PriceRow>
+            <PriceRowTitle>원래가격</PriceRowTitle>
+            <PriceRowValue>{`${currency}${price}`}</PriceRowValue>
+          </PriceRow>
+          <PriceRow>
+            <PriceRowTitle>환전가격</PriceRowTitle>
+            <PriceRowValue>{`₩${exchangePrice}`}</PriceRowValue>
+            <PriceRowCalculate>{`${price} × ${exchangeRate}`}</PriceRowCalculate>
+          </PriceRow>
+          <PriceRow>
+            <PriceRowTitle>관세</PriceRowTitle>
+            <PriceRowValue>{`₩${tax}`}</PriceRowValue>
+            <PriceRowCalculate>{`${exchangePrice} × ${taxRate}`}</PriceRowCalculate>
+          </PriceRow>
+          <PriceRow>
+            <PriceRowTitle>부가세</PriceRowTitle>
+            <PriceRowValue>{`₩${vat}`}</PriceRowValue>
+            <PriceRowCalculate>{`(${exchangePrice} + ${tax}) × ${vatRate}`}</PriceRowCalculate>
+          </PriceRow>
+          <PriceRow>
+            <PriceRowTitle>배송비</PriceRowTitle>
+            <PriceRowValue>{`₩${exchangeDeliveryFee}`}</PriceRowValue>
+            <PriceRowCalculate>{`${deliveryFee} × ${exchangeRate}`}</PriceRowCalculate>
+          </PriceRow>
+          <PriceRow>
+            <PriceRowTitle>최종가격</PriceRowTitle>
+            <PriceRowValue>{`₩${round(finalPrice)}`}</PriceRowValue>
+            <PriceRowCalculate>{`${exchangePrice} + ${tax} + ${vat} + ${exchangeDeliveryFee}`}</PriceRowCalculate>
+          </PriceRow>
+        </PriceWrapper>
+
         <SizeWraper>
           {
             sizes.map((size) => (
@@ -81,81 +119,6 @@ function ProductDetail({
           }
         </DescriptionWrapper>
 
-        <p>
-          {currency}
-          {price}
-        </p>
-        <p>
-          {price}
-          {' '}
-          *
-          {' '}
-          {exchangeRate}
-          {' '}
-          =
-          {' '}
-          {exchangePrice}
-        </p>
-        <p>
-          {exchangePrice}
-          {' '}
-          *
-          {' '}
-          {taxRate}
-          {' '}
-          =
-          {' '}
-          {tax}
-        </p>
-        <p>
-          (
-          {exchangePrice}
-          {' '}
-          +
-          {' '}
-          {tax}
-          ) *
-          {' '}
-          {vatRate}
-          {' '}
-          =
-          {' '}
-          {vat}
-        </p>
-        <p>
-          {deliveryFee}
-          {' '}
-          *
-          {' '}
-          {exchangeRate}
-          {' '}
-          =
-          {' '}
-          {exchangeDeliveryFee}
-        </p>
-        <p>
-          {exchangePrice}
-          {' '}
-          +
-          {' '}
-          {tax}
-          {' '}
-          +
-          {' '}
-          {vat}
-          {' '}
-          +
-          {' '}
-          {exchangeDeliveryFee}
-          {' '}
-          =
-          {' '}
-          {finalPrice}
-        </p>
-        <p>
-          {round(finalPrice)}
-          원
-        </p>
       </ContentsWrapper>
     </Wrapper>
   );
