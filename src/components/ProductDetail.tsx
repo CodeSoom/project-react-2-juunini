@@ -34,7 +34,12 @@ function ProductDetail({
 
   return (
     <div>
-      <ImageGallery items={imageGallery} />
+      <ImageGallery
+        items={imageGallery}
+        showFullscreenButton={false}
+        autoPlay
+        slideInterval={5000}
+      />
       <p>{name}</p>
       <p>{brand}</p>
       <a href={href} target="_new">브랜드 페이지로 이동</a>
