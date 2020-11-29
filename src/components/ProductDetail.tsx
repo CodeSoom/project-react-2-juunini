@@ -124,7 +124,7 @@ function ProductDetail({
           {
             description
               .split('\n')
-              .map((row) => <DescriptionRow key={row}>{row}</DescriptionRow>)
+              .map((row, i) => <DescriptionRow key={row || i}>{row}</DescriptionRow>)
           }
         </DescriptionWrapper>
 
