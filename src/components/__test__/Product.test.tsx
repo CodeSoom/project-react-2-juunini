@@ -31,7 +31,6 @@ test('Product', () => {
     </MemoryRouter>
   ));
 
-  expect(screen.getByText(new RegExp(brand))).toBeInTheDocument();
   expect(screen.getByText(new RegExp(name))).toBeInTheDocument();
   expect(screen.getByText(new RegExp(currency + price.toLocaleString()))).toBeInTheDocument();
   expect(screen.getByAltText('product')).toHaveAttribute('src', image);
