@@ -3,6 +3,12 @@ import { round } from 'lodash';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
+import {
+  Wrapper,
+  ImageGalleryWrapper,
+  ContentsWrapper,
+} from 'src/layout/ProductDetail';
+
 export type ProductDetailProps = {
   name: string;
   brand: string;
@@ -33,104 +39,110 @@ function ProductDetail({
   const imageGallery = images.map((image) => ({ original: image, thumbnail: image }));
 
   return (
-    <div>
-      <ImageGallery
-        items={imageGallery}
-        showFullscreenButton={false}
-        autoPlay
-        slideInterval={5000}
-      />
-      <p>{name}</p>
-      <p>{brand}</p>
-      <a href={href} target="_new">브랜드 페이지로 이동</a>
-      <p>
-        {
-          sizes.map((size) => (
-            <span key={size}>
-              {size}
-              {' '}
-            </span>
-          ))
-        }
-      </p>
-      <p>{description}</p>
+    <Wrapper>
+      <ImageGalleryWrapper>
+        <ImageGallery
+          items={imageGallery}
+          thumbnailPosition="left"
+          showNav={false}
+          showFullscreenButton={false}
+          autoPlay
+          slideInterval={5000}
+        />
+      </ImageGalleryWrapper>
+      <ContentsWrapper>
+        <p>{name}</p>
+        <p>{brand}</p>
+        <a href={href} target="_new">브랜드 페이지로 이동</a>
+        <p>
+          {
+            sizes.map((size) => (
+              <span key={size}>
+                {size}
+                {' '}
+              </span>
+            ))
+          }
+        </p>
+        <p>{description}</p>
 
-      <p>
-        {currency}
-        {price}
-      </p>
-      <p>
-        {price}
-        {' '}
-        *
-        {' '}
-        {exchangeRate}
-        {' '}
-        =
-        {' '}
-        {exchangePrice}
-      </p>
-      <p>
-        {exchangePrice}
-        {' '}
-        *
-        {' '}
-        {taxRate}
-        {' '}
-        =
-        {' '}
-        {tax}
-      </p>
-      <p>
-        (
-        {exchangePrice}
-        {' '}
-        +
-        {' '}
-        {tax}
-        ) *
-        {' '}
-        {vatRate}
-        {' '}
-        =
-        {' '}
-        {vat}
-      </p>
-      <p>
-        {deliveryFee}
-        {' '}
-        *
-        {' '}
-        {exchangeRate}
-        {' '}
-        =
-        {' '}
-        {exchangeDeliveryFee}
-      </p>
-      <p>
-        {exchangePrice}
-        {' '}
-        +
-        {' '}
-        {tax}
-        {' '}
-        +
-        {' '}
-        {vat}
-        {' '}
-        +
-        {' '}
-        {exchangeDeliveryFee}
-        {' '}
-        =
-        {' '}
-        {finalPrice}
-      </p>
-      <p>
-        {round(finalPrice)}
-        원
-      </p>
-    </div>
+        <p>
+          {currency}
+          {price}
+        </p>
+        <p>
+          {price}
+          {' '}
+          *
+          {' '}
+          {exchangeRate}
+          {' '}
+          =
+          {' '}
+          {exchangePrice}
+        </p>
+        <p>
+          {exchangePrice}
+          {' '}
+          *
+          {' '}
+          {taxRate}
+          {' '}
+          =
+          {' '}
+          {tax}
+        </p>
+        <p>
+          (
+          {exchangePrice}
+          {' '}
+          +
+          {' '}
+          {tax}
+          ) *
+          {' '}
+          {vatRate}
+          {' '}
+          =
+          {' '}
+          {vat}
+        </p>
+        <p>
+          {deliveryFee}
+          {' '}
+          *
+          {' '}
+          {exchangeRate}
+          {' '}
+          =
+          {' '}
+          {exchangeDeliveryFee}
+        </p>
+        <p>
+          {exchangePrice}
+          {' '}
+          +
+          {' '}
+          {tax}
+          {' '}
+          +
+          {' '}
+          {vat}
+          {' '}
+          +
+          {' '}
+          {exchangeDeliveryFee}
+          {' '}
+          =
+          {' '}
+          {finalPrice}
+        </p>
+        <p>
+          {round(finalPrice)}
+          원
+        </p>
+      </ContentsWrapper>
+    </Wrapper>
   );
 }
 
