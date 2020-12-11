@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
@@ -10,14 +11,19 @@ const List = styled.ul({
 });
 
 const Card = styled.li({
-  maxWidth: '400px',
   minWidth: '200px',
-  width: '16%',
+  maxWidth: '20%',
   marginBottom: '2em',
+  padding: '0 0.6em',
 
   textAlign: 'center',
 
   listStyle: 'none',
+
+  '@media (pointer:coarse)': {
+    minWidth: '50%',
+    maxWidth: '50%',
+  },
 });
 
 export type CardLinkProps = {
@@ -28,42 +34,46 @@ export type CardLinkProps = {
 const CardLink = ({ to, children }: CardLinkProps) => (
   <Link
     to={to}
-    style={{
+    css={css({
       position: 'relative',
       overflow: 'hidden',
 
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      padding: '20.5em 1em 0',
 
       color: 'inherit',
       textDecoration: 'none',
-    }}
+    })}
   >
     {children}
   </Link>
 );
 
-const BrandLogo = styled.img({
-  position: 'absolute',
-  top: 0,
-  left: '50%',
+const BrandLogoWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '2.2em',
+  marginBottom: '0.4em',
+});
 
+const BrandLogo = styled.img({
   maxWidth: '80%',
   maxHeight: '2.2em',
+});
 
-  transform: 'translateX(-50%)',
+const ImgWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  height: '17.4em',
+  marginBottom: '0.6em',
 });
 
 const Img = styled.img({
-  position: 'absolute',
-  top: '2.6em',
-  left: '50%',
-
-  height: '17.4em',
-
-  transform: 'translateX(-50%)',
+  height: '100%',
 });
 
 const Name = styled.strong({
@@ -74,20 +84,22 @@ const Price = styled.p({
   marginBottom: '0.5em',
 });
 
-const SizeWrapper = styled.div({
+const SizeWrapper = styled.ul({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'center',
 
   color: '#999999',
+  fontSize: '0.8em',
+  listStyle: 'none',
 });
 
-const Size = styled.small({
+const Size = styled.li({
   padding: '0 0.5em',
 });
 
-const Soldout = styled.small({
+const Soldout = styled.li({
   padding: '0 0.5em',
 
   color: '#CA015E',
@@ -97,7 +109,9 @@ export {
   List,
   Card,
   CardLink,
+  ImgWrapper,
   Img,
+  BrandLogoWrapper,
   BrandLogo,
   Name,
   Price,

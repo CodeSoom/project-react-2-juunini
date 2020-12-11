@@ -8,6 +8,10 @@ const Wrapper = styled.div({
 
   color: '#666666',
   fontSize: '16px',
+
+  '@media (pointer:coarse)': {
+    fontSize: '32px',
+  },
 });
 
 const Main = styled.main({

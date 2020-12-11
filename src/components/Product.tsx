@@ -2,7 +2,8 @@ import React from 'react';
 import { isEmpty } from 'lodash';
 
 import {
-  Card, Img, BrandLogo,
+  Card, ImgWrapper, Img,
+  BrandLogoWrapper, BrandLogo,
   CardLink, Name, Price,
   SizeWrapper, Size, Soldout,
 } from 'src/layout/products';
@@ -32,8 +33,12 @@ function Product({
   return (
     <Card>
       <CardLink to={`/products/${id}`}>
-        <BrandLogo src={brandImage} alt={brand} />
-        <Img src={image} alt="product" />
+        <BrandLogoWrapper>
+          <BrandLogo src={brandImage} alt={brand} />
+        </BrandLogoWrapper>
+        <ImgWrapper>
+          <Img src={image} alt="product" />
+        </ImgWrapper>
         <Name>
           {name}
         </Name>
