@@ -29,7 +29,7 @@ export default function ProductsContainer() {
       } = product;
       const image = images[0];
       const {
-        name: brand, includeTax,
+        name: brand, image: brandImage, includeTax,
         deliveryFee, minimumFreeDeliveryPrice,
       } = shops[brandId];
       const { exchangeRate } = currencies[currency];
@@ -49,6 +49,7 @@ export default function ProductsContainer() {
         {
           id,
           brand,
+          brandImage,
           name,
           finalPrice: round(finalPrice),
           currency: currencies.KRW.symbol,

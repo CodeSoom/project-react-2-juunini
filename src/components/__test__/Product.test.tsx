@@ -6,10 +6,11 @@ import Product from '../Product';
 
 test('Product', () => {
   const {
-    id, brand, name, price, currency, image, sizes,
+    id, brand, brandImage, name, price, currency, image, sizes,
   } = {
     id: 1,
     brand: 'DISTURBIA',
+    brandImage: '/img/brands/DISTURBIA.svg',
     name: 'Stellar Oversized Jumper',
     price: 48,
     currency: '£',
@@ -22,6 +23,7 @@ test('Product', () => {
       <Product
         id={id}
         brand={brand}
+        brandImage={brandImage}
         name={name}
         finalPrice={price}
         currency={currency}

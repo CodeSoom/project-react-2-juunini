@@ -10,6 +10,7 @@ import {
 export type ProductProps = {
   id: number;
   brand: string;
+  brandImage: string;
   name: string;
   finalPrice: number;
   currency: string;
@@ -18,7 +19,7 @@ export type ProductProps = {
 };
 
 function Product({
-  id, brand, name, finalPrice, currency, image, sizes,
+  id, brand, brandImage, name, finalPrice, currency, image, sizes,
 }: ProductProps) {
   const Sizes = isEmpty(sizes)
     ? <Soldout>Sold Out</Soldout>
@@ -31,7 +32,7 @@ function Product({
   return (
     <Card>
       <CardLink to={`/products/${id}`}>
-        <BrandLogo src={`/img/brands/${brand}.png`} alt="" />
+        <BrandLogo src={brandImage} alt={brand} />
         <Img src={image} alt="product" />
         <Name>
           {name}

@@ -5,6 +5,7 @@ const shops = [
     deliveryFee: 4.99,
     minimumFreeDeliveryPrice: 150,
     includeTax: false,
+    image: '/img/brands/KILLSTAR.png',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const shops = [
     deliveryFee: 14.95,
     minimumFreeDeliveryPrice: 200,
     includeTax: false,
+    image: '/img/brands/DISTURBIA.svg',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const shops = [
     deliveryFee: 4,
     minimumFreeDeliveryPrice: 200,
     includeTax: true,
+    image: '/img/brands/Rogue + Wolf.png',
   },
 ];
 

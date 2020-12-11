@@ -10,6 +10,7 @@ test('Products', () => {
       {
         id: 1,
         brand: 'DISTURBIA',
+        brandImage: '/img/brands/DISTURBIA.svg',
         name: 'Stellar Oversized Jumper',
         finalPrice: 87736,
         currency: '£',
