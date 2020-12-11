@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
@@ -18,6 +19,11 @@ const Card = styled.li({
   textAlign: 'center',
 
   listStyle: 'none',
+
+  '@media (pointer:coarse)': {
+    minWidth: '50%',
+    maxWidth: '50%',
+  },
 });
 
 export type CardLinkProps = {
@@ -28,7 +34,7 @@ export type CardLinkProps = {
 const CardLink = ({ to, children }: CardLinkProps) => (
   <Link
     to={to}
-    style={{
+    css={css({
       position: 'relative',
       overflow: 'hidden',
 
@@ -38,7 +44,7 @@ const CardLink = ({ to, children }: CardLinkProps) => (
 
       color: 'inherit',
       textDecoration: 'none',
-    }}
+    })}
   >
     {children}
   </Link>
