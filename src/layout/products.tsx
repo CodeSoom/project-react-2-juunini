@@ -10,10 +10,10 @@ const List = styled.ul({
 });
 
 const Card = styled.li({
-  maxWidth: '400px',
   minWidth: '200px',
-  width: '16%',
+  maxWidth: '20%',
   marginBottom: '2em',
+  padding: '0 0.6em',
 
   textAlign: 'center',
 
@@ -35,7 +35,6 @@ const CardLink = ({ to, children }: CardLinkProps) => (
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      padding: '20.5em 1em 0',
 
       color: 'inherit',
       textDecoration: 'none',
@@ -45,25 +44,30 @@ const CardLink = ({ to, children }: CardLinkProps) => (
   </Link>
 );
 
-const BrandLogo = styled.img({
-  position: 'absolute',
-  top: 0,
-  left: '50%',
+const BrandLogoWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '2.2em',
+  marginBottom: '0.4em',
+});
 
+const BrandLogo = styled.img({
   maxWidth: '80%',
   maxHeight: '2.2em',
+});
 
-  transform: 'translateX(-50%)',
+const ImgWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  height: '17.4em',
+  marginBottom: '0.6em',
 });
 
 const Img = styled.img({
-  position: 'absolute',
-  top: '2.6em',
-  left: '50%',
-
-  height: '17.4em',
-
-  transform: 'translateX(-50%)',
+  height: '100%',
 });
 
 const Name = styled.strong({
@@ -74,20 +78,22 @@ const Price = styled.p({
   marginBottom: '0.5em',
 });
 
-const SizeWrapper = styled.div({
+const SizeWrapper = styled.ul({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'center',
 
   color: '#999999',
+  fontSize: '0.8em',
+  listStyle: 'none',
 });
 
-const Size = styled.small({
+const Size = styled.li({
   padding: '0 0.5em',
 });
 
-const Soldout = styled.small({
+const Soldout = styled.li({
   padding: '0 0.5em',
 
   color: '#CA015E',
@@ -97,7 +103,9 @@ export {
   List,
   Card,
   CardLink,
+  ImgWrapper,
   Img,
+  BrandLogoWrapper,
   BrandLogo,
   Name,
   Price,
