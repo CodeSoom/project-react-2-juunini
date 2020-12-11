@@ -12,12 +12,13 @@ function Products({ products }: ProductsProps) {
     <List>
       {
         products.map(({
-          id, brand, name, finalPrice, currency, image, sizes,
+          id, brand, brandImage, name, finalPrice, currency, image, sizes,
         }) => (
           <Product
             key={id}
             id={id}
             brand={brand}
+            brandImage={brandImage}
             name={name}
             finalPrice={finalPrice}
             currency={currency}
