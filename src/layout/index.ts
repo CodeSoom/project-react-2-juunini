@@ -20,9 +20,15 @@ const Header = styled.header({
   zIndex: 100,
   top: 0,
   minHeight: '6.25em',
+  marginBottom: '3.75em',
   background: '#FFFFFF',
   borderBottom: '1px solid #ebebeb',
   boxShadow: '0 0 1px 1px rgba(0,0,0,0.05)',
+  transition: 'min-height 0.5s',
+
+  '&.shrink': {
+    minHeight: '5em',
+  },
 });
 
 const Main = styled.main({
