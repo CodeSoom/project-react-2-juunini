@@ -11,7 +11,7 @@ function HeaderContainer() {
 
   return (
     <Header
-      className={layout.scrollTop > 50 ? 'shrink' : ''}
+      className={layout.scrollTop > 0 ? 'shrink' : ''}
     >
       <Logo>
         <LogoLink>

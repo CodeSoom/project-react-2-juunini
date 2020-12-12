@@ -1,0 +1,8 @@
+{
+  "manifest_version": "0.1",
+  "version": "alpha v0.1",
+  "name": "equal dark",
+  "display": "standalone",
+  "theme_color": "#666666",
+  "background_color": "#FFFFFF"
+}
