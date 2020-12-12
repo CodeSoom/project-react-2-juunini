@@ -10,15 +10,19 @@ const Header = styled.header({
   top: 0,
   minHeight: '6.25em',
   marginBottom: '3.75em',
+
+  '&.shrink > div': {
+    height: '5em',
+    fontSize: '0.8em',
+  },
+});
+
+const HeaderInner = styled.div({
+  height: '6.25em',
   background: '#FFFFFF',
   borderBottom: '1px solid #ebebeb',
   boxShadow: '0 0 1px 1px rgba(0,0,0,0.05)',
   transition: '0.5s',
-
-  '&.shrink': {
-    minHeight: '5em',
-    fontSize: '0.8em',
-  },
 });
 
 const Logo = styled.h1({
@@ -49,6 +53,7 @@ const LogoLink = ({ children }: LogoLinkProps) => (
 
 export {
   Header,
+  HeaderInner,
   Logo,
   LogoLink,
 };
