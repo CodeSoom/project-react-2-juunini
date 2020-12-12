@@ -11,9 +11,8 @@ const Header = styled.header({
   minHeight: '6.25em',
   marginBottom: '3.75em',
 
-  '&.shrink > div': {
-    height: '5em',
-    fontSize: '0.8em',
+  '&.shrink': {
+    fontSize: '0.75em',
   },
 });
 
@@ -22,7 +21,7 @@ const HeaderInner = styled.div({
   background: '#FFFFFF',
   borderBottom: '1px solid #ebebeb',
   boxShadow: '0 0 1px 1px rgba(0,0,0,0.05)',
-  transition: '0.5s',
+  transition: '0.5s ease-in-out',
 });
 
 const Logo = styled.h1({
@@ -44,7 +43,7 @@ const LogoLink = ({ children }: LogoLinkProps) => (
     css={css({
       textDecoration: 'none',
       color: 'inherit',
-      transition: '0.5s',
+      transition: '0.5s ease-in-out',
     })}
   >
     {children}
