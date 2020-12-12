@@ -9,6 +9,7 @@ import ProductDetailPage from 'src/pages/ProductDetailPage';
 import NotFoundPage from 'src/pages/NotFoundPage';
 import WrapperContainer from 'src/containers/WrapperContainer';
 import HeaderContainer from 'src/containers/HeaderContainer';
+import FooterContainer from 'src/containers/FooterContainer';
 import { Main } from 'src/layout';
 
 export default function App() {
@@ -23,6 +24,8 @@ export default function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Main>
+
+      <FooterContainer />
     </WrapperContainer>
   );
 }
