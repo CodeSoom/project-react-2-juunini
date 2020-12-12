@@ -108,16 +108,17 @@ const PriceRowCalculate = styled.small({
   flexGrow: 1,
 });
 
-const SizeWraper = styled.div({
+const SizeWraper = styled.ul({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'center',
 
   marginBottom: '1em',
+  listStyle: 'none',
 });
 
-const Size = styled.span({
+const Size = styled.li({
   display: 'inline-block',
   height: '2.2em',
   lineHeight: '2.2em',
@@ -128,7 +129,7 @@ const Size = styled.span({
   color: '#333',
 });
 
-const SoldOut = styled.span({
+const SoldOut = styled.li({
   color: '#CA015E',
 });
 

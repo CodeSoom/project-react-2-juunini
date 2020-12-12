@@ -79,12 +79,12 @@ function ProductDetail({
 
         <PriceWrapper>
           <PriceRow>
-            <PriceRowTitle>원래가격</PriceRowTitle>
+            <PriceRowTitle>판매가격</PriceRowTitle>
             <PriceRowValue>{`${currency}${price.toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${!taxRate && !vatRate ? 'inc. tax' : ''}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
-            <PriceRowTitle>환전가격</PriceRowTitle>
+            <PriceRowTitle>환율계산</PriceRowTitle>
             <PriceRowValue>{`₩${round(exchangePrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${price} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
