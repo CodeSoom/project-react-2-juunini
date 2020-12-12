@@ -7,12 +7,13 @@ import {
 import ProductsPage from 'src/pages/ProductsPage';
 import ProductDetailPage from 'src/pages/ProductDetailPage';
 import NotFoundPage from 'src/pages/NotFoundPage';
+import WrapperContainer from 'src/containers/WrapperContainer';
 import HeaderContainer from 'src/containers/HeaderContainer';
-import { Wrapper, Main } from 'src/layout';
+import { Main } from 'src/layout';
 
 export default function App() {
   return (
-    <Wrapper>
+    <WrapperContainer>
       <HeaderContainer />
 
       <Main>
@@ -22,6 +23,6 @@ export default function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Main>
-    </Wrapper>
+    </WrapperContainer>
   );
 }
