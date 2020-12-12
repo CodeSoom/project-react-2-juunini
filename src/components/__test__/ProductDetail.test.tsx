@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { round } from 'lodash';
+import { ceil } from 'lodash';
 
 import ProductDetail, { ProductDetailProps } from '../ProductDetail';
 
@@ -89,7 +89,7 @@ describe('ProductDetail', () => {
       toBeInTheDocument(tax.toString());
       toBeInTheDocument(vat.toString());
       toBeInTheDocument(exchangeDeliveryFee.toString());
-      toBeInTheDocument(round(finalPrice).toLocaleString());
+      toBeInTheDocument(ceil(finalPrice).toLocaleString());
     });
   });
 

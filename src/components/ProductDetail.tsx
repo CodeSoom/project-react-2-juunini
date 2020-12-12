@@ -1,5 +1,5 @@
 import React from 'react';
-import { round, isEmpty } from 'lodash';
+import { ceil, isEmpty } from 'lodash';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -85,14 +85,14 @@ function ProductDetail({
           </PriceRow>
           <PriceRow>
             <PriceRowTitle>환율계산</PriceRowTitle>
-            <PriceRowValue>{`₩${round(exchangePrice).toLocaleString()}`}</PriceRowValue>
+            <PriceRowValue>{`₩${ceil(exchangePrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${price} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
           {
             taxRate ? (
               <PriceRow>
                 <PriceRowTitle>관세</PriceRowTitle>
-                <PriceRowValue>{`₩${round(tax).toLocaleString()}`}</PriceRowValue>
+                <PriceRowValue>{`₩${ceil(tax).toLocaleString()}`}</PriceRowValue>
                 <PriceRowCalculate>{`${exchangePrice} × ${taxRate}`}</PriceRowCalculate>
               </PriceRow>
             ) : null
@@ -101,19 +101,19 @@ function ProductDetail({
             vatRate ? (
               <PriceRow>
                 <PriceRowTitle>부가세</PriceRowTitle>
-                <PriceRowValue>{`₩${round(vat).toLocaleString()}`}</PriceRowValue>
+                <PriceRowValue>{`₩${ceil(vat).toLocaleString()}`}</PriceRowValue>
                 <PriceRowCalculate>{`(${exchangePrice} + ${tax}) × ${vatRate}`}</PriceRowCalculate>
               </PriceRow>
             ) : null
           }
           <PriceRow>
             <PriceRowTitle>배송비</PriceRowTitle>
-            <PriceRowValue>{`₩${round(exchangeDeliveryFee).toLocaleString()}`}</PriceRowValue>
+            <PriceRowValue>{`₩${ceil(exchangeDeliveryFee).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${deliveryFee} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
             <PriceRowTitle>최종가격</PriceRowTitle>
-            <PriceRowValue>{`₩${round(finalPrice).toLocaleString()}`}</PriceRowValue>
+            <PriceRowValue>{`₩${ceil(finalPrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${exchangePrice}${tax ? ` + ${tax}` : ''}${vat ? ` + ${vat}` : ''} + ${exchangeDeliveryFee}`}</PriceRowCalculate>
           </PriceRow>
         </PriceWrapper>
