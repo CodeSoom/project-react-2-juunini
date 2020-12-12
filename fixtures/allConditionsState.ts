@@ -21,6 +21,9 @@ const allConditionsState = {
     ...map,
     [tax.id]: tax,
   }), {}),
+  layout: {
+    scrollTop: 0,
+  },
 };
 
 export default allConditionsState;

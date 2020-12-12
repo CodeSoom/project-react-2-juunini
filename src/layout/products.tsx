@@ -7,7 +7,7 @@ const List = styled.ul({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  justifyContent: 'space-around',
+  justifyContent: 'center',
 });
 
 const Card = styled.li({
