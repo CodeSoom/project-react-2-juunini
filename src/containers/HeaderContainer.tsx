@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { Header, Logo, LogoLink } from 'src/layout/Header';
 import { RootState } from 'src/redux/rootReducer';
