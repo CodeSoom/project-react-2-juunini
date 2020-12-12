@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { Footer } from 'src/layout/Footer';
+import { Footer, CopyRight } from 'src/layout/Footer';
 
 function FooterContainer() {
   return (
     <Footer>
-      Footer
+      <CopyRight>
+        &#169;
+        {' '}
+        {new Date().getFullYear()}
+        {' '}
+        Equal Dark
+      </CopyRight>
     </Footer>
   );
 }

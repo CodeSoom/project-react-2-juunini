@@ -18,6 +18,7 @@ const Wrapper = styled.div({
 const Main = styled.main({
   display: 'flex',
   flexDirection: 'column',
+  marginBottom: '3.75em',
 });
 
 export {
