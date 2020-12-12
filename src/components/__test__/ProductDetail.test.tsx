@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { round } from 'lodash';
+import { ceil } from 'lodash';
 
 import ProductDetail, { ProductDetailProps } from '../ProductDetail';
 
@@ -11,27 +11,7 @@ describe('ProductDetail', () => {
 
   context('with sizes', () => {
     it('renders product detail component', () => {
-      const {
-        name,
-        brand,
-        href,
-        images,
-        sizes,
-        description,
-
-        price,
-        currency,
-        exchangeRate,
-        taxRate,
-        vatRate,
-        deliveryFee,
-
-        exchangePrice,
-        tax,
-        vat,
-        exchangeDeliveryFee,
-        finalPrice,
-      }: ProductDetailProps = {
+      const props: ProductDetailProps = {
         name: 'product name',
         brand: 'brand name',
         href: 'https://brand/products/href',
@@ -54,68 +34,32 @@ describe('ProductDetail', () => {
       };
 
       render(<ProductDetail
-        name={name}
-        brand={brand}
-        href={href}
-        images={images}
-        sizes={sizes}
-        description={description}
-        price={price}
-        currency={currency}
-        exchangeRate={exchangeRate}
-        taxRate={taxRate}
-        vatRate={vatRate}
-        deliveryFee={deliveryFee}
-        exchangePrice={exchangePrice}
-        tax={tax}
-        vat={vat}
-        exchangeDeliveryFee={exchangeDeliveryFee}
-        finalPrice={finalPrice}
+        props={props}
       />);
 
-      toBeInTheDocument(name);
-      toBeInTheDocument(description);
-      toBeInTheDocument(currency);
+      toBeInTheDocument(props.name);
+      toBeInTheDocument(props.description);
+      toBeInTheDocument(props.currency);
 
-      sizes.forEach((size) => toBeInTheDocument(size));
+      props.sizes.forEach((size) => toBeInTheDocument(size));
 
-      toBeInTheDocument(price.toString());
-      toBeInTheDocument(exchangeRate.toString());
-      toBeInTheDocument(taxRate.toString());
-      toBeInTheDocument(vatRate.toString());
-      toBeInTheDocument(deliveryFee.toString());
+      toBeInTheDocument(props.price.toString());
+      toBeInTheDocument(props.exchangeRate.toString());
+      toBeInTheDocument(props.taxRate.toString());
+      toBeInTheDocument(props.vatRate.toString());
+      toBeInTheDocument(props.deliveryFee.toString());
 
-      toBeInTheDocument(exchangePrice.toString());
-      toBeInTheDocument(tax.toString());
-      toBeInTheDocument(vat.toString());
-      toBeInTheDocument(exchangeDeliveryFee.toString());
-      toBeInTheDocument(round(finalPrice).toLocaleString());
+      toBeInTheDocument(props.exchangePrice.toString());
+      toBeInTheDocument(props.tax.toString());
+      toBeInTheDocument(props.vat.toString());
+      toBeInTheDocument(props.exchangeDeliveryFee.toString());
+      toBeInTheDocument(ceil(props.finalPrice).toLocaleString());
     });
   });
 
   context('without sizes', () => {
     it('renders sold out', () => {
-      const {
-        name,
-        brand,
-        href,
-        images,
-        sizes,
-        description,
-
-        price,
-        currency,
-        exchangeRate,
-        taxRate,
-        vatRate,
-        deliveryFee,
-
-        exchangePrice,
-        tax,
-        vat,
-        exchangeDeliveryFee,
-        finalPrice,
-      }: ProductDetailProps = {
+      const props: ProductDetailProps = {
         name: 'product name',
         brand: 'brand name',
         href: 'https://brand/products/href',
@@ -138,23 +82,7 @@ describe('ProductDetail', () => {
       };
 
       render(<ProductDetail
-        name={name}
-        brand={brand}
-        href={href}
-        images={images}
-        sizes={sizes}
-        description={description}
-        price={price}
-        currency={currency}
-        exchangeRate={exchangeRate}
-        taxRate={taxRate}
-        vatRate={vatRate}
-        deliveryFee={deliveryFee}
-        exchangePrice={exchangePrice}
-        tax={tax}
-        vat={vat}
-        exchangeDeliveryFee={exchangeDeliveryFee}
-        finalPrice={finalPrice}
+        props={props}
       />);
 
       toBeInTheDocument('Sold Out');

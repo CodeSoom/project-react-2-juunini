@@ -3,23 +3,54 @@ import styled from '@emotion/styled';
 const Wrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
+  padding: '0 1.25em',
+
+  '@media (pointer:coarse)': {
+    flexDirection: 'column',
+    padding: '0',
+  },
+
+  '@media (max-width: 768px)': {
+    flexDirection: 'column',
+    padding: '0',
+  },
 });
 
 const ImageGalleryWrapper = styled.section({
-  width: '60%',
+  width: '40%',
+
+  '@media (pointer:coarse)': {
+    width: '100%',
+    marginBottom: '4em',
+  },
+
+  '@media (max-width: 768px)': {
+    width: '100%',
+    marginBottom: '4em',
+  },
 });
 
 const ContentsWrapper = styled.section({
-  width: '40%',
+  width: '60%',
+  padding: '0 1.25em',
+
+  '@media (pointer:coarse)': {
+    width: '100%',
+  },
+
+  '@media (max-width: 768px)': {
+    width: '100%',
+  },
 });
 
 const BrandLogoWrapper = styled.div({
-  marginBottom: '1em',
+  marginBottom: '2em',
   textAlign: 'center',
 });
 
 const BrandLogo = styled.img({
   maxWidth: '80%',
+  maxHeight: '3.75em',
 });
 
 const Name = styled.h2({
@@ -27,6 +58,31 @@ const Name = styled.h2({
   lineHeight: '1.2em',
   fontSize: '1.6em',
   color: '#333',
+
+  '@media (pointer:coarse)': {
+    textAlign: 'center',
+  },
+
+  '@media (max-width: 768px)': {
+    textAlign: 'center',
+  },
+});
+
+const SourcePageAnchorWrapper = styled.p({
+  marginBottom: '1.2em',
+
+  '@media (pointer:coarse)': {
+    textAlign: 'center',
+  },
+
+  '@media (max-width: 768px)': {
+    textAlign: 'center',
+  },
+});
+
+const SourcePageAnchor = styled.a({
+  fontSize: '0.8em',
+  color: 'inherit',
 });
 
 const PriceWrapper = styled.div({
@@ -52,16 +108,17 @@ const PriceRowCalculate = styled.small({
   flexGrow: 1,
 });
 
-const SizeWraper = styled.div({
+const SizeWraper = styled.ul({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'center',
 
   marginBottom: '1em',
+  listStyle: 'none',
 });
 
-const Size = styled.span({
+const Size = styled.li({
   display: 'inline-block',
   height: '2.2em',
   lineHeight: '2.2em',
@@ -72,7 +129,7 @@ const Size = styled.span({
   color: '#333',
 });
 
-const SoldOut = styled.span({
+const SoldOut = styled.li({
   color: '#CA015E',
 });
 
@@ -96,6 +153,8 @@ export {
   BrandLogoWrapper,
   BrandLogo,
   Name,
+  SourcePageAnchorWrapper,
+  SourcePageAnchor,
   PriceWrapper,
   PriceRow,
   PriceRowTitle,

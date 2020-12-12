@@ -1,5 +1,5 @@
 import React from 'react';
-import { round, isEmpty } from 'lodash';
+import { ceil, isEmpty } from 'lodash';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -10,6 +10,8 @@ import {
   BrandLogoWrapper,
   BrandLogo,
   Name,
+  SourcePageAnchorWrapper,
+  SourcePageAnchor,
   PriceWrapper,
   PriceRow,
   PriceRowTitle,
@@ -21,6 +23,10 @@ import {
   DescriptionWrapper,
   DescriptionRow,
 } from 'src/layout/ProductDetail';
+
+export type ProductDetailPropsWrapper = {
+  props: ProductDetailProps;
+};
 
 export type ProductDetailProps = {
   name: string;
@@ -44,11 +50,12 @@ export type ProductDetailProps = {
   finalPrice: number;
 };
 
-function ProductDetail({
-  name, brand, href, images, sizes, description,
-  price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
-  exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
-}: ProductDetailProps) {
+function ProductDetail({ props }: ProductDetailPropsWrapper) {
+  const {
+    name, brand, href, images, sizes, description,
+    price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
+    exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
+  } = props;
   const imageGallery = images.map((image) => ({ original: image, thumbnail: image }));
 
   return (
@@ -56,7 +63,7 @@ function ProductDetail({
       <ImageGalleryWrapper>
         <ImageGallery
           items={imageGallery}
-          thumbnailPosition="left"
+          thumbnailPosition="bottom"
           showNav={false}
           showFullscreenButton={false}
           autoPlay
@@ -69,24 +76,28 @@ function ProductDetail({
         </BrandLogoWrapper>
         <Name>{name}</Name>
 
-        <a href={href} target="_new" style={{ display: 'block', marginBottom: '1em' }}>브랜드 페이지로 이동</a>
+        <SourcePageAnchorWrapper>
+          <SourcePageAnchor href={href} target="_new">
+            브랜드 페이지로 이동
+          </SourcePageAnchor>
+        </SourcePageAnchorWrapper>
 
         <PriceWrapper>
           <PriceRow>
-            <PriceRowTitle>원래가격</PriceRowTitle>
+            <PriceRowTitle>판매가격</PriceRowTitle>
             <PriceRowValue>{`${currency}${price.toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${!taxRate && !vatRate ? 'inc. tax' : ''}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
-            <PriceRowTitle>환전가격</PriceRowTitle>
-            <PriceRowValue>{`₩${round(exchangePrice).toLocaleString()}`}</PriceRowValue>
+            <PriceRowTitle>환율계산</PriceRowTitle>
+            <PriceRowValue>{`₩${ceil(exchangePrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${price} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
           {
             taxRate ? (
               <PriceRow>
                 <PriceRowTitle>관세</PriceRowTitle>
-                <PriceRowValue>{`₩${round(tax).toLocaleString()}`}</PriceRowValue>
+                <PriceRowValue>{`₩${ceil(tax).toLocaleString()}`}</PriceRowValue>
                 <PriceRowCalculate>{`${exchangePrice} × ${taxRate}`}</PriceRowCalculate>
               </PriceRow>
             ) : null
@@ -95,19 +106,19 @@ function ProductDetail({
             vatRate ? (
               <PriceRow>
                 <PriceRowTitle>부가세</PriceRowTitle>
-                <PriceRowValue>{`₩${round(vat).toLocaleString()}`}</PriceRowValue>
+                <PriceRowValue>{`₩${ceil(vat).toLocaleString()}`}</PriceRowValue>
                 <PriceRowCalculate>{`(${exchangePrice} + ${tax}) × ${vatRate}`}</PriceRowCalculate>
               </PriceRow>
             ) : null
           }
           <PriceRow>
             <PriceRowTitle>배송비</PriceRowTitle>
-            <PriceRowValue>{`₩${round(exchangeDeliveryFee).toLocaleString()}`}</PriceRowValue>
+            <PriceRowValue>{`₩${ceil(exchangeDeliveryFee).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${deliveryFee} × ${exchangeRate}`}</PriceRowCalculate>
           </PriceRow>
           <PriceRow>
             <PriceRowTitle>최종가격</PriceRowTitle>
-            <PriceRowValue>{`₩${round(finalPrice).toLocaleString()}`}</PriceRowValue>
+            <PriceRowValue>{`₩${ceil(finalPrice).toLocaleString()}`}</PriceRowValue>
             <PriceRowCalculate>{`${exchangePrice}${tax ? ` + ${tax}` : ''}${vat ? ` + ${vat}` : ''} + ${exchangeDeliveryFee}`}</PriceRowCalculate>
           </PriceRow>
         </PriceWrapper>
