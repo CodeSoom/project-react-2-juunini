@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Header } from 'src/layout';
+import { Header, Logo, LogoLink } from 'src/layout/Header';
 import { RootState } from 'src/redux/rootReducer';
 
 function HeaderContainer() {
@@ -10,7 +11,15 @@ function HeaderContainer() {
   }));
 
   return (
-    <Header className={layout.scrollTop > 50 ? 'shrink' : ''} />
+    <Header
+      className={layout.scrollTop > 50 ? 'shrink' : ''}
+    >
+      <Logo>
+        <LogoLink>
+          Equal Dark
+        </LogoLink>
+      </Logo>
+    </Header>
   );
 }
 

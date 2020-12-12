@@ -4,11 +4,18 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from 'src/redux/rootReducer';
 import allConditionsState from 'fixtures/allConditionsState';
+import { MemoryRouter } from 'react-router-dom';
 import HeaderContainer from '../HeaderContainer';
 
 jest.mock('react-redux');
 
 describe('HeaderContainer', () => {
+  const renderHeaderContainer = () => render((
+    <MemoryRouter>
+      <HeaderContainer />
+    </MemoryRouter>
+  ));
+
   context('when scrollTop under 50', () => {
     it('renders container without shirnk class', () => {
       (useSelector as jest.Mock)
@@ -16,7 +23,7 @@ describe('HeaderContainer', () => {
           ...allConditionsState,
         }));
 
-      const { container } = render(<HeaderContainer />);
+      const { container } = renderHeaderContainer();
       const header = container.children[0];
 
       expect(header.classList.contains('shrink')).toBeFalsy();
@@ -33,7 +40,7 @@ describe('HeaderContainer', () => {
           },
         }));
 
-      const { container } = render(<HeaderContainer />);
+      const { container } = renderHeaderContainer();
       const header = container.children[0];
 
       expect(header.classList.contains('shrink')).toBeTruthy();
