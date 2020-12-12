@@ -10,6 +10,8 @@ import {
   BrandLogoWrapper,
   BrandLogo,
   Name,
+  SourcePageAnchorWrapper,
+  SourcePageAnchor,
   PriceWrapper,
   PriceRow,
   PriceRowTitle,
@@ -56,7 +58,7 @@ function ProductDetail({
       <ImageGalleryWrapper>
         <ImageGallery
           items={imageGallery}
-          thumbnailPosition="left"
+          thumbnailPosition="bottom"
           showNav={false}
           showFullscreenButton={false}
           autoPlay
@@ -69,7 +71,11 @@ function ProductDetail({
         </BrandLogoWrapper>
         <Name>{name}</Name>
 
-        <a href={href} target="_new" style={{ display: 'block', marginBottom: '1em' }}>브랜드 페이지로 이동</a>
+        <SourcePageAnchorWrapper>
+          <SourcePageAnchor href={href} target="_new">
+            브랜드 페이지로 이동
+          </SourcePageAnchor>
+        </SourcePageAnchorWrapper>
 
         <PriceWrapper>
           <PriceRow>

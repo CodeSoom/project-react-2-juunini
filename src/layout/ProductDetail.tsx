@@ -3,18 +3,32 @@ import styled from '@emotion/styled';
 const Wrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
+
+  '@media (pointer:coarse)': {
+    flexDirection: 'column',
+  },
 });
 
 const ImageGalleryWrapper = styled.section({
   width: '60%',
+
+  '@media (pointer:coarse)': {
+    width: '100%',
+    marginBottom: '4em',
+  },
 });
 
 const ContentsWrapper = styled.section({
   width: '40%',
+
+  '@media (pointer:coarse)': {
+    width: '100%',
+    padding: '0 1.25em',
+  },
 });
 
 const BrandLogoWrapper = styled.div({
-  marginBottom: '1em',
+  marginBottom: '2em',
   textAlign: 'center',
 });
 
@@ -27,6 +41,23 @@ const Name = styled.h2({
   lineHeight: '1.2em',
   fontSize: '1.6em',
   color: '#333',
+
+  '@media (pointer:coarse)': {
+    textAlign: 'center',
+  },
+});
+
+const SourcePageAnchorWrapper = styled.p({
+  marginBottom: '1.2em',
+
+  '@media (pointer:coarse)': {
+    textAlign: 'center',
+  },
+});
+
+const SourcePageAnchor = styled.a({
+  fontSize: '0.8em',
+  color: 'inherit',
 });
 
 const PriceWrapper = styled.div({
@@ -96,6 +127,8 @@ export {
   BrandLogoWrapper,
   BrandLogo,
   Name,
+  SourcePageAnchorWrapper,
+  SourcePageAnchor,
   PriceWrapper,
   PriceRow,
   PriceRowTitle,
