@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div({
+  overflow: 'auto',
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh',
+  height: '100vh',
 
   color: '#666666',
   fontSize: '16px',
