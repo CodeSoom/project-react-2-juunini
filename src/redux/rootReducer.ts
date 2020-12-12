@@ -1,10 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import shopsReducer from './shops';
-import productsReducer from './products';
-import productReducer from './product';
-import currenciesReducer from './currencies';
-import taxesReducer from './taxes';
+import shopsReducer from 'src/redux/shops';
+import productsReducer from 'src/redux/products';
+import productReducer from 'src/redux/product';
+import currenciesReducer from 'src/redux/currencies';
+import taxesReducer from 'src/redux/taxes';
+import layoutReducer from 'src/redux/layout';
 
 const rootReducer = combineReducers({
   shops: shopsReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   product: productReducer,
   currencies: currenciesReducer,
   taxes: taxesReducer,
+  layout: layoutReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
