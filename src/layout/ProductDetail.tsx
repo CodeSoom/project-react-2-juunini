@@ -17,7 +17,7 @@ const Wrapper = styled.div({
 });
 
 const ImageGalleryWrapper = styled.section({
-  width: '40%',
+  flexGrow: 1,
 
   '@media (pointer:coarse)': {
     width: '100%',
@@ -31,7 +31,7 @@ const ImageGalleryWrapper = styled.section({
 });
 
 const ContentsWrapper = styled.section({
-  width: '60%',
+  maxWidth: '35em',
   padding: '0 1.25em',
 
   '@media (pointer:coarse)': {
@@ -97,11 +97,13 @@ const PriceRow = styled.p({
 });
 
 const PriceRowTitle = styled.span({
-  width: '4.5em',
+  minWidth: '4.5em',
+  maxWidth: '4.5em',
 });
 
 const PriceRowValue = styled.strong({
-  width: '5.5em',
+  minWidth: '5.5em',
+  maxWidth: '5.5em',
 });
 
 const PriceRowCalculate = styled.small({
