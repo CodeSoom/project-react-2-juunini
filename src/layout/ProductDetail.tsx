@@ -3,27 +3,43 @@ import styled from '@emotion/styled';
 const Wrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
+  padding: '0 1.25em',
 
   '@media (pointer:coarse)': {
     flexDirection: 'column',
+    padding: '0',
+  },
+
+  '@media (max-width: 768px)': {
+    flexDirection: 'column',
+    padding: '0',
   },
 });
 
 const ImageGalleryWrapper = styled.section({
-  width: '60%',
+  width: '40%',
 
   '@media (pointer:coarse)': {
+    width: '100%',
+    marginBottom: '4em',
+  },
+
+  '@media (max-width: 768px)': {
     width: '100%',
     marginBottom: '4em',
   },
 });
 
 const ContentsWrapper = styled.section({
-  width: '40%',
+  width: '60%',
+  padding: '0 1.25em',
 
   '@media (pointer:coarse)': {
     width: '100%',
-    padding: '0 1.25em',
+  },
+
+  '@media (max-width: 768px)': {
+    width: '100%',
   },
 });
 
@@ -34,6 +50,7 @@ const BrandLogoWrapper = styled.div({
 
 const BrandLogo = styled.img({
   maxWidth: '80%',
+  maxHeight: '3.75em',
 });
 
 const Name = styled.h2({
@@ -45,12 +62,20 @@ const Name = styled.h2({
   '@media (pointer:coarse)': {
     textAlign: 'center',
   },
+
+  '@media (max-width: 768px)': {
+    textAlign: 'center',
+  },
 });
 
 const SourcePageAnchorWrapper = styled.p({
   marginBottom: '1.2em',
 
   '@media (pointer:coarse)': {
+    textAlign: 'center',
+  },
+
+  '@media (max-width: 768px)': {
     textAlign: 'center',
   },
 });
