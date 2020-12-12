@@ -21,13 +21,11 @@ function ProductDetailContainer() {
     href, images, sizes, description,
   } = product;
 
-  if (isEmpty(taxes[product.category])) {
-    return (<p>loading...</p>);
-  }
-  if (isEmpty(currencies[currency])) {
-    return (<p>loading...</p>);
-  }
-  if (isEmpty(shops[brandId])) {
+  if (
+    isEmpty(taxes[product.category])
+    || isEmpty(currencies[currency])
+    || isEmpty(shops[brandId])
+  ) {
     return (<p>loading...</p>);
   }
 
