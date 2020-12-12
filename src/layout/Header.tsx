@@ -43,7 +43,6 @@ const LogoLink = ({ children }: LogoLinkProps) => (
     css={css({
       textDecoration: 'none',
       color: 'inherit',
-      transition: '0.5s ease-in-out',
     })}
   >
     {children}
