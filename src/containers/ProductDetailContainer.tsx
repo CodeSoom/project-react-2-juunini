@@ -47,26 +47,28 @@ function ProductDetailContainer() {
     price, exchangeRate, taxRate, vatRate, deliveryFee: productDeliveryFee,
   });
 
+  const props = {
+    name,
+    brand,
+    href,
+    images,
+    sizes,
+    description,
+    price,
+    currency: symbol,
+    exchangeRate,
+    taxRate,
+    vatRate,
+    deliveryFee: productDeliveryFee,
+    exchangePrice,
+    tax,
+    vat,
+    exchangeDeliveryFee,
+    finalPrice,
+  };
+
   return (
-    <ProductDetail
-      name={name}
-      brand={brand}
-      href={href}
-      images={images}
-      sizes={sizes}
-      description={description}
-      price={price}
-      currency={symbol}
-      exchangeRate={exchangeRate}
-      taxRate={taxRate}
-      vatRate={vatRate}
-      deliveryFee={productDeliveryFee}
-      exchangePrice={exchangePrice}
-      tax={tax}
-      vat={vat}
-      exchangeDeliveryFee={exchangeDeliveryFee}
-      finalPrice={finalPrice}
-    />
+    <ProductDetail props={props} />
   );
 }
 
