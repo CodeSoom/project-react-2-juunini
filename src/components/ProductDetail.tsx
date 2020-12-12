@@ -24,6 +24,10 @@ import {
   DescriptionRow,
 } from 'src/layout/ProductDetail';
 
+export type ProductDetailPropsWrapper = {
+  props: ProductDetailProps;
+};
+
 export type ProductDetailProps = {
   name: string;
   brand: string;
@@ -46,11 +50,12 @@ export type ProductDetailProps = {
   finalPrice: number;
 };
 
-function ProductDetail({
-  name, brand, href, images, sizes, description,
-  price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
-  exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
-}: ProductDetailProps) {
+function ProductDetail({ props }: ProductDetailPropsWrapper) {
+  const {
+    name, brand, href, images, sizes, description,
+    price, currency, exchangeRate, taxRate, vatRate, deliveryFee,
+    exchangePrice, tax, vat, exchangeDeliveryFee, finalPrice,
+  } = props;
   const imageGallery = images.map((image) => ({ original: image, thumbnail: image }));
 
   return (

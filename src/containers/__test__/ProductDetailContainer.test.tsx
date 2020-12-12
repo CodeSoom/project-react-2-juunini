@@ -3,10 +3,8 @@ import { useSelector } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 
 import { RootState } from 'src/redux/rootReducer';
-import shops from 'fixtures/shops';
 import products from 'fixtures/products';
-import currencies from 'fixtures/currencies';
-import taxes from 'fixtures/taxes';
+import allConditionsState from 'fixtures/allConditionsState';
 import ProductDetailContainer from '../ProductDetailContainer';
 
 jest.mock('react-redux');
@@ -16,20 +14,8 @@ describe('ProductDetailContainer', () => {
     it('renders container', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
-          shops: shops.reduce((map, shop) => ({
-            ...map,
-            [shop.id]: shop,
-          }), {}),
-          products: {},
+          ...allConditionsState,
           product: products[0],
-          currencies: currencies.reduce((map, currency) => ({
-            ...map,
-            [currency.name]: currency,
-          }), {}),
-          taxes: taxes.reduce((map, tax) => ({
-            ...map,
-            [tax.id]: tax,
-          }), {}),
         }));
 
       render(<ProductDetailContainer />);
@@ -40,20 +26,8 @@ describe('ProductDetailContainer', () => {
     it('renders container', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
-          shops: shops.reduce((map, shop) => ({
-            ...map,
-            [shop.id]: shop,
-          }), {}),
-          products: {},
+          ...allConditionsState,
           product: products[4],
-          currencies: currencies.reduce((map, currency) => ({
-            ...map,
-            [currency.name]: currency,
-          }), {}),
-          taxes: taxes.reduce((map, tax) => ({
-            ...map,
-            [tax.id]: tax,
-          }), {}),
         }));
 
       render(<ProductDetailContainer />);
@@ -64,20 +38,8 @@ describe('ProductDetailContainer', () => {
     it('renders container', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
-          shops: shops.reduce((map, shop) => ({
-            ...map,
-            [shop.id]: shop,
-          }), {}),
-          products: {},
+          ...allConditionsState,
           product: { ...products[0], price: 300 },
-          currencies: currencies.reduce((map, currency) => ({
-            ...map,
-            [currency.name]: currency,
-          }), {}),
-          taxes: taxes.reduce((map, tax) => ({
-            ...map,
-            [tax.id]: tax,
-          }), {}),
         }));
 
       render(<ProductDetailContainer />);
@@ -88,17 +50,9 @@ describe('ProductDetailContainer', () => {
     it('renders loading', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
+          ...allConditionsState,
           shops: {},
-          products: {},
           product: { ...products[0], price: 300 },
-          currencies: currencies.reduce((map, currency) => ({
-            ...map,
-            [currency.name]: currency,
-          }), {}),
-          taxes: taxes.reduce((map, tax) => ({
-            ...map,
-            [tax.id]: tax,
-          }), {}),
         }));
 
       render(<ProductDetailContainer />);
@@ -111,17 +65,9 @@ describe('ProductDetailContainer', () => {
     it('renders loading', () => {
       (useSelector as jest.Mock)
         .mockImplementation((selector: (arg: RootState) => void) => selector({
-          shops: shops.reduce((map, shop) => ({
-            ...map,
-            [shop.id]: shop,
-          }), {}),
-          products: {},
-          product: { ...products[0], price: 300 },
+          ...allConditionsState,
           currencies: {},
-          taxes: taxes.reduce((map, tax) => ({
-            ...map,
-            [tax.id]: tax,
-          }), {}),
+          product: { ...products[0], price: 300 },
         }));
 
       render(<ProductDetailContainer />);
